@@ -1,0 +1,330 @@
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+
+body {
+     font-family: 'Montserrat', 'Arial', sans-serif;
+}
+
+.phusa-footer-wrapper {
+     background: linear-gradient(180deg, #d4dff5 0%, #c8d9f2 100%);
+     padding: 60px 0 0 0;
+}
+
+.phusa-contact-section {
+     max-width: 1400px;
+     margin: 0 auto;
+     padding: 0 40px 50px 40px;
+}
+
+.phusa-contact-title {
+     text-align: center;
+     font-size: 48px;
+     font-weight: 800;
+     color: #1a1f4d;
+     margin-bottom: 60px;
+     letter-spacing: 1px;
+}
+
+.phusa-contact-grid {
+     display: grid;
+     grid-template-columns: repeat(4, 1fr);
+     gap: 40px;
+     margin-bottom: 50px;
+}
+
+.phusa-contact-item {
+     text-align: center;
+}
+
+.phusa-contact-icon {
+     width: 60px;
+     height: 60px;
+     background: #1a1f4d;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin: 0 auto 20px auto;
+}
+
+.phusa-contact-icon svg {
+     width: 28px;
+     height: 28px;
+     stroke: white;
+     fill: none;
+     stroke-width: 2;
+}
+
+.phusa-contact-label {
+     font-size: 18px;
+     font-weight: 700;
+     color: #1a1f4d;
+     margin-bottom: 12px;
+}
+
+.phusa-contact-text {
+     font-size: 15px;
+     color: #1a1f4d;
+     line-height: 1.6;
+}
+
+.phusa-newsletter-section {
+     background: #151847;
+     padding: 40px;
+     border-radius: 0;
+     margin: 0;
+}
+
+.phusa-newsletter-container {
+     max-width: 1400px;
+     margin: 0 auto;
+     display: flex;
+     align-items: center;
+     gap: 30px;
+}
+
+.phusa-newsletter-icon {
+     width: 80px;
+     height: 80px;
+     background: #5b8fb9;
+     border-radius: 8px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-shrink: 0;
+}
+
+.phusa-newsletter-icon svg {
+     width: 45px;
+     height: 45px;
+     stroke: #1a1f4d;
+     fill: none;
+     stroke-width: 2;
+}
+
+.phusa-newsletter-text {
+     color: white;
+     font-size: 16px;
+     font-weight: 400;
+     flex-shrink: 0;
+     padding-top: 20px;
+}
+
+.phusa-newsletter-form {
+     display: flex;
+     gap: 0;
+     flex: 1;
+     max-width: 600px;
+}
+
+.phusa-newsletter-input {
+     flex: 1;
+     padding: 15px 20px;
+     border: none;
+     border-radius: 8px 0 0 8px;
+     font-size: 15px;
+     outline: none;
+}
+
+.phusa-newsletter-button {
+     padding: 15px 35px;
+     background: white;
+     border: 2px solid #1a1f4d;
+     border-radius: 0 8px 8px 0;
+     color: #1a1f4d;
+     font-size: 15px;
+     font-weight: 600;
+     cursor: pointer;
+     transition: all 0.3s ease;
+}
+
+.phusa-newsletter-button:hover {
+     background: #1a1f4d;
+     color: white;
+}
+
+.phusa-footer-main {
+     background: #151847;
+     padding: 60px 40px 40px 40px;
+}
+
+.phusa-footer-content {
+     max-width: 1400px;
+     margin: 0 auto;
+     display: grid;
+     grid-template-columns: repeat(5, 1fr);
+     gap: 50px;
+}
+
+.phusa-footer-column {
+     text-align: center;
+}
+
+.phusa-footer-column h3 {
+     color: white;
+     font-size: 20px;
+     font-weight: 700;
+     margin-bottom: 25px;
+}
+
+.phusa-footer-links {
+     list-style: none;
+}
+
+.phusa-footer-links li {
+     margin-bottom: 12px;
+}
+
+.phusa-footer-links a {
+     color: #e8edf5;
+     text-decoration: none;
+     font-size: 15px;
+     font-weight: 400;
+     transition: color 0.3s ease;
+}
+
+.phusa-footer-links a:hover {
+     color: white;
+}
+
+.phusa-footer-bottom {
+     background: #a8c9e8;
+     padding: 25px 40px;
+     text-align: center;
+}
+
+.phusa-copyright {
+     color: #1a1f4d;
+     font-size: 15px;
+     font-weight: 500;
+}
+
+.phusa-scroll-top {
+     position: fixed;
+     bottom: 40px;
+     right: 40px;
+     width: 50px;
+     height: 50px;
+     background: #1a1f4d;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     cursor: pointer;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+     transition: all 0.3s ease;
+}
+
+.phusa-scroll-top:hover {
+     background: #2a2f5d;
+     transform: translateY(-3px);
+}
+
+.phusa-scroll-top svg {
+     width: 24px;
+     height: 24px;
+     stroke: white;
+     fill: none;
+     stroke-width: 3;
+}
+
+@media (max-width: 1200px) {
+     .phusa-contact-grid {
+          grid-template-columns: repeat(2, 1fr);
+     }
+
+     .phusa-footer-content {
+          grid-template-columns: repeat(3, 1fr);
+     }
+}
+
+@media (max-width: 768px) {
+     .phusa-contact-title {
+          font-size: 32px;
+     }
+
+     .phusa-contact-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+     }
+
+     .phusa-newsletter-container {
+          flex-direction: column;
+          text-align: center;
+     }
+
+     .phusa-newsletter-form {
+          max-width: 100%;
+     }
+
+     .phusa-footer-content {
+          grid-template-columns: 1fr;
+          gap: 30px;
+     }
+}
+
+.input-container {
+     background-color: #151847;
+     /* màu nền xanh đậm */
+     padding: 20px;
+     padding-left: 2px;
+     display: flex;
+     justify-content: center;
+}
+
+.input-container input {
+     width: 400px;
+     padding: 10px 15px;
+     border: none;
+     border-radius: 6px 0 0 6px;
+     outline: none;
+     font-size: 16px;
+}
+
+.input-container button {
+     background-color: #08085b;
+     color: #ffffff;
+     border: none;
+     border-radius: 0 6px 6px 0;
+     padding: 10px 20px;
+     cursor: pointer;
+     font-size: 16px;
+     font-family: inherit;
+}
+
+.input-container button:hover {
+     background-color: #151847;
+}
+
+@media (max-width: 768px) {
+     .input-container {
+          padding: 15px 10px;
+          flex-direction: column;
+          gap: 10px;
+     }
+
+     .input-container input {
+          width: 100%;
+          border-radius: 6px;
+     }
+
+     .input-container button {
+          width: 100%;
+          border-radius: 6px;
+          padding: 12px 20px;
+     }
+}
+
+@media (max-width: 480px) {
+     .input-container {
+          padding: 12px 8px;
+     }
+
+     .input-container input,
+     .input-container button {
+          font-size: 14px;
+     }
+}

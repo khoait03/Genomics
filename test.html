@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đồng Hành Cùng Khoa Học Việt</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1a3a52;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2196F3;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: #f0f0f0;
+            padding: 8px 20px;
+            border-radius: 25px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            outline: none;
+            width: 200px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%231a3a52" width="1200" height="800"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.3"/><circle cx="50" cy="60" r="1.5" fill="white" opacity="0.3"/><circle cx="80" cy="40" r="2" fill="white" opacity="0.3"/></svg>');
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 16px;
+            max-width: 700px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #2196F3;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1976D2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(33, 150, 243, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #1a3a52;
+        }
+
+        .btn-secondary:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            animation: bounce 2s infinite;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 100;
+        }
+
+        .sidebar a {
+            width: 40px;
+            height: 40px;
+            background: rgba(26, 58, 82, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: #2196F3;
+            transform: scale(1.1);
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 100px 50px;
+            background: #e8f4f8;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .menu-item {
+            background: #1a3a52;
+            color: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .menu-item:hover {
+            background: #2c5570;
+            transform: translateX(10px);
+        }
+
+        .about-content {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-content img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        /* Research Section */
+        .research-section {
+            padding: 100px 50px;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 800;
+            color: #1a3a52;
+            text-transform: uppercase;
+            margin-bottom: 60px;
+            letter-spacing: 2px;
+        }
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .research-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .research-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .research-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .research-card-content {
+            padding: 25px;
+            background: #1a3a52;
+            color: white;
+        }
+
+        .research-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .research-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .view-more {
+            background: white;
+            color: #1a3a52;
+            padding: 10px 30px;
+            border-radius: 25px;
+            border: none;
+            font-weight: 600;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .view-more:hover {
+            background: #2196F3;
+            color: white;
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 100px 50px;
+            background: #0a1628;
+            color: white;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .product-card-content {
+            padding: 25px;
+            color: #1a3a52;
+        }
+
+        .product-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .product-card p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* News Section */
+        .news-section {
+            padding: 100px 50px;
+            background: #f5f5f5;
+        }
+
+        .news-slider {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            overflow-x: auto;
+        }
+
+        .news-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .news-card-content {
+            padding: 20px;
+            background: white;
+        }
+
+        /* Partners Section */
+        .partners-section {
+            padding: 80px 50px;
+            background: white;
+        }
+
+        .partners-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .partner-logo {
+            height: 80px;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.3s;
+        }
+
+        .partner-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 50px;
+            background: #e8f4f8;
+        }
+
+        .contact-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 800;
+            color: #1a3a52;
+            text-transform: uppercase;
+            margin-bottom: 60px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: #1a3a52;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 24px;
+        }
+
+        .contact-item h3 {
+            color: #1a3a52;
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .contact-item p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0a1628;
+            color: white;
+            padding: 60px 50px 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 20px;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: #2196F3;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .research-grid,
+            .products-grid,
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="#ve-chung-toi">VỀ CHÚNG TÔI</a>
+            <a href="#san-pham">SẢN PHẨM</a>
+            <a href="#tin-tuc">TIN TỨC</a>
+            <a href="#opec">OPEC+</a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm...">
+            <i class="fas fa-search"></i>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fas fa-envelope"></i></a>
+        <a href="#"><i class="fas fa-phone"></i></a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>ĐỒNG HÀNH CÙNG<br>KHOA HỌC VIỆT</h1>
+        <p>Chúng tôi cam kết đồng hành cùng các nhà khoa học Việt Nam trong việc nghiên cứu, phát triển và ứng dụng công
+            nghệ tiên tiến vào thực tiễn</p>
+        <div class="hero-buttons">
+            <a href="#" class="btn btn-primary">Khám phá</a>
+            <a href="#" class="btn btn-secondary">Liên hệ</a>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down" style="color: white; font-size: 24px;"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="ve-chung-toi">
+        <div class="about-grid">
+            <div class="about-menu">
+                <div class="menu-item">Giới thiệu</div>
+                <div class="menu-item">Nghiên cứu</div>
+                <div class="menu-item">Dịch vụ</div>
+                <div class="menu-item">Nông nghiệp</div>
+            </div>
+            <div class="about-content">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'><rect fill='%232c5570' width='800' height='400'/><text x='50%' y='50%' fill='white' font-size='24' text-anchor='middle' dominant-baseline='middle'>Giảng viên đang giảng dạy</text></svg>"
+                    alt="About">
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section class="research-section">
+        <h2 class="section-title">NGHIÊN CỨU NỔI BẬT</h2>
+        <div class="research-grid">
+            <div class="research-card">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23e0e0e0' width='400' height='300'/><text x='50%' y='50%' fill='%23666' font-size='16' text-anchor='middle' dominant-baseline='middle'>Spoticheck & Định hướng tôm</text></svg>"
+                    alt="Research 1">
+                <div class="research-card-content">
+                    <h3>Spoticheck & Định hướng tôm</h3>
+                    <p>Nghiên cứu về phương pháp kiểm tra và định hướng phát triển ngành nuôi tôm bền vững</p>
+                    <button class="view-more">Xem thêm →</button>
+                </div>
+            </div>
+            <div class="research-card">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%231a3a52' width='400' height='300'/><text x='50%' y='50%' fill='white' font-size='16' text-anchor='middle' dominant-baseline='middle'>Long Oligo & NGS Sequencing</text></svg>"
+                    alt="Research 2">
+                <div class="research-card-content">
+                    <h3>Long Oligo & NGS Sequencing</h3>
+                    <p>Công nghệ giải trình tự thế hệ mới và ứng dụng trong nghiên cứu gen</p>
+                    <button class="view-more">Xem thêm →</button>
+                </div>
+            </div>
+            <div class="research-card">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23d0d0d0' width='400' height='300'/><text x='50%' y='50%' fill='%23666' font-size='16' text-anchor='middle' dominant-baseline='middle'>Magic mix 2+</text></svg>"
+                    alt="Research 3">
+                <div class="research-card-content">
+                    <h3>Magic mix 2+</h3>
+                    <p>Dung dịch hỗn hợp đột phá cho nghiên cứu sinh học phân tử</p>
+                    <button class="view-more">Xem thêm →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="san-pham">
+        <h2 class="section-title">SẢN PHẨM</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23f0f0f0' width='400' height='300'/><text x='50%' y='50%' fill='%23666' font-size='16' text-anchor='middle' dominant-baseline='middle'>Sphotcheck Platforms</text></svg>"
+                    alt="Product 1">
+                <div class="product-card-content">
+                    <h3>Sphotcheck Platforms</h3>
+                    <p>Nền tảng kiểm tra và giám sát chất lượng</p>
+                    <p style="color: #2196F3; font-weight: 600; margin-top: 10px;">Chi tiết →</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%232196F3' width='400' height='300'/><text x='50%' y='50%' fill='white' font-size='16' text-anchor='middle' dominant-baseline='middle'>New 3 in 1 Protable Device</text></svg>"
+                    alt="Product 2">
+                <div class="product-card-content">
+                    <h3>New 3 in 1 Protable Device</h3>
+                    <p>Thiết bị di động đa năng thế hệ mới</p>
+                    <p style="color: #2196F3; font-weight: 600; margin-top: 10px;">Chi tiết →</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%232c7a5f' width='400' height='300'/><text x='50%' y='50%' fill='white' font-size='16' text-anchor='middle' dominant-baseline='middle'>African fish disease research</text></svg>"
+                    alt="Product 3">
+                <div class="product-card-content">
+                    <h3>African fish disease research</h3>
+                    <p>Nghiên cứu bệnh cá ở Châu Phi</p>
+                    <p style="color: #2196F3; font-weight: 600; margin-top: 10px;">Chi tiết →</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news-section" id="tin-tuc">
+        <h2 class="section-title">TIN TỨC</h2>
+        <div class="news-slider">
+            <div class="news-grid">
+                <div class="news-card">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%231a3a52' width='400' height='300'/><text x='50%' y='50%' fill='white' font-size='14' text-anchor='middle' dominant-baseline='middle'>Hội thảo công đồng</text></svg>"
+                        alt="News 1">
+                    <div class="news-card-content">
+                        <h3>Hội thảo công đồng</h3>
+                        <p>Sự kiện quy tụ các chuyên gia hàng đầu</p>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%232c5570' width='400' height='300'/><text x='50%' y='50%' fill='white' font-size='14' text-anchor='middle' dominant-baseline='middle'>Diễn giả tại sự kiện</text></svg>"
+                        alt="News 2">
+                    <div class="news-card-content">
+                        <h3>Diễn giả tại sự kiện</h3>
+                        <p>Chia sẻ kiến thức và kinh nghiệm</p>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%2358b5d9' width='400' height='300'/><text x='50%' y='50%' fill='white' font-size='14' text-anchor='middle' dominant-baseline='middle'>Hoạt động cộng đồng</text></svg>"
+                        alt="News 3">
+                    <div class="news-card-content">
+                        <h3>Hoạt động cộng đồng</h3>
+                        <p>Kết nối và chia sẻ</p>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23f39c12' width='400' height='300'/><text x='50%' y='50%' fill='white' font-size='14' text-anchor='middle' dominant-baseline='middle'>Tin khoa học mới</text></svg>"
+                        alt="News 4">
+                    <div class="news-card-content">
+                        <h3>Tin khoa học mới</h3>
+                        <p>Cập nhật kiến thức hàng ngày</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners-section">
+        <div class="partners-grid">
+            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 80'><rect fill='%231a3a52' width='150' height='80'/><text x='50%' y='50%' fill='white' font-size='12' text-anchor='middle' dominant-baseline='middle'>Partner 1</text></svg>"
+                alt="Partner 1" class="partner-logo">
+            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 80'><rect fill='%231a3a52' width='150' height='80'/><text x='50%' y='50%' fill='white' font-size='12' text-anchor='middle' dominant-baseline='middle'>Partner 2</text></svg>"
+                alt="Partner 2" class="partner-logo">
+            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 80'><rect fill='%231a3a52' width='150' height='80'/><text x='50%' y='50%' fill='white' font-size='12' text-anchor='middle' dominant-baseline='middle'>Partner 3</text></svg>"
+                alt="Partner 3" class="partner-logo">
+            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 80'><rect fill='%231a3a52' width='150' height='80'/><text x='50%' y='50%' fill='white' font-size='12' text-anchor='middle' dominant-baseline='middle'>Yale</text></svg>"
+                alt="Yale" class="partner-logo">
+            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 80'><rect fill='%231a3a52' width='150' height='80'/><text x='50%' y='50%' fill='white' font-size='12' text-anchor='middle' dominant-baseline='middle'>Partner 5</text></svg>"
+                alt="Partner 5" class="partner-logo">
+        </div>
+    </section>
+
+    <!-- Contact Section -->

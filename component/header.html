@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phù Sa Genomics - Header & Hero</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            overflow-x: hidden;
+            background: #001E50;
+        }
+
+        /* Header Styles - Rounded Design */
+        .header-wrapper {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 95%;
+            max-width: 1853px;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            border-radius: 50px;
+            height: 70px;
+            padding: 0 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            gap: 40px;
+        }
+
+        .logo-header {
+            display: flex;
+            align-items: center;
+            min-width: 150px;
+        }
+
+        .logo-header img {
+            height: 45px;
+            width: auto;
+        }
+
+        /* Navigation Menu */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 45px;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #1B2E59;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+
+        .nav-menu a:hover {
+            color: #4FC3D4;
+        }
+
+        .nav-menu a i {
+            font-size: 10px;
+            opacity: 0.7;
+        }
+
+        /* Header Actions */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 18px;
+            color: #fff;
+            font-size: 15px;
+            z-index: 2;
+        }
+
+        .search-box input {
+            padding: 11px 22px 11px 45px;
+            border: none;
+            border-radius: 25px;
+            background: #72ACD6;
+            color: white;
+            font-size: 13px;
+            width: 180px;
+            
+            height: 48px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input::placeholder {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .search-box input:focus {
+            width: 240px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Language Toggle Switch */
+        .language-toggle {
+            position: relative;
+            width: 100px;
+            height: 48px;
+            background: #7FA9C8;
+            border-radius: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            padding: 0 8px;
+        }
+
+        .language-toggle:hover {
+            box-shadow: 0 4px 15px rgba(127, 169, 200, 0.3);
+        }
+
+        .toggle-slider {
+            position: absolute;
+            left: 4px;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .toggle-slider span {
+            font-size: 14px;
+            font-weight: 700;
+            color: #3B4A7A;
+            user-select: none;
+        }
+
+        .language-options {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+            position: relative;
+        }
+
+        .lang-option {
+            font-size: 14px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+            user-select: none;
+            z-index: 1;
+        }
+
+        .lang-option.active {
+            color: transparent;
+        }
+
+        /* English active state */
+        .language-toggle.en-active .toggle-slider {
+            left: 53px;
+        }
+
+        .language-toggle.en-active .lang-option.en {
+            color: transparent;
+        }
+
+        .language-toggle.en-active .lang-option.vi {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Default Vietnamese state */
+        .language-toggle .lang-option.vi {
+            color: transparent;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0, 30, 80, 0.7), rgba(0, 30, 80, 0.7)),
+                url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1920');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 10rem 5% 4rem;
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0, 20, 60, 0.4) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .hero-section h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            color: #fff;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            letter-spacing: 3px;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+            line-height: 1.2;
+        }
+
+        .hero-section p {
+            font-size: 1.05rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .btn {
+            /* padding: 1rem 2.8rem; */
+            border: none;
+            width: 140px;
+            height: 45px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-radius: 10px;
+        }
+
+        .btn-primary {
+            background: #fff;
+            color: #1B2E59;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(255, 255, 255, 0.4);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator i {
+            font-size: 2.5rem;
+            color: #fff;
+            opacity: 0.8;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            40% {
+                transform: translateX(-50%) translateY(-15px);
+            }
+
+            60% {
+                transform: translateX(-50%) translateY(-8px);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1400px) {
+            .header-wrapper {
+                width: 96%;
+            }
+
+            .nav-menu {
+                gap: 30px;
+            }
+
+            .header-content {
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .header-top {
+                height: auto;
+                border-radius: 35px;
+                padding: 15px 25px;
+            }
+
+            .header-content {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .nav-menu {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                gap: 20px;
+                padding-top: 10px;
+            }
+
+            .nav-menu a {
+                font-size: 13px;
+            }
+
+            .hero-section h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-wrapper {
+                top: 10px;
+                width: 94%;
+            }
+
+            .header-top {
+                border-radius: 30px;
+                padding: 12px 20px;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .search-box input {
+                width: 140px;
+            }
+
+            .search-box input:focus {
+                width: 180px;
+            }
+
+            .hero-section {
+                padding: 8rem 5% 3rem;
+            }
+
+            .hero-section h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* Header Scroll Effect */
+        .header-wrapper.scrolled .header-top {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+
+        /* Social Sidebar */
+        .social-sidebar {
+            position: fixed;
+            left: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            z-index: 100;
+        }
+
+        .social-icon {
+            width: 56.65px;
+            height: 56.65px;
+            background: #1B2E59;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-icon:hover {
+            background: #4FC3D4;
+            transform: scale(1.1);
+        }
+
+
+    </style>
+
+
+
+
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header-wrapper">
+        <header class="header-top">
+            <div class="header-content">
+                <div class="logo-header">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'%3E%3Ctext x='10' y='50' font-family='Arial' font-weight='bold' font-size='40' fill='%23667eea'%3EPHUSA%3C/text%3E%3Ctext x='10' y='70' font-family='Arial' font-size='12' fill='%23764ba2'%3EGENOMICS%3C/text%3E%3C/svg%3E"
+                        alt="Phusa Genomics Logo">
+                </div>
+
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="#about">VỀ CHÚNG TÔI</a></li>
+                        <li><a href="#products">SẢN PHẨM <i class="fas fa-chevron-down"></i></a></li>
+                        <li><a href="#news">TIN TỨC <i class="fas fa-chevron-down"></i></a></li>
+                        <li><a href="#opce">OPCE <i class="fas fa-chevron-down"></i></a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Tìm kiếm...">
+                    </div>
+                    <div class="language-toggle" id="langToggle">
+                        <div class="toggle-slider">
+                            <span id="sliderText">Vi</span>
+                        </div>
+                        <div class="language-options">
+                            <div class="lang-option vi">Vi</div>
+                            <div class="lang-option en">En</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+
+    <!-- Social Sidebar -->
+    <div class="social-sidebar">
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+        <a href="#" class="social-icon"><i class="fas fa-phone"></i></a>
+        <a href="#" class="social-icon"><i class="fas fa-user"></i></a>
+    </div>
+
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>ĐỒNG HÀNH CÙNG<br>KHOA HỌC VIỆT</h1>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat</p>
+            <div class="hero-buttons">
+                <button class="btn btn btn-secondary">Đăng ký</button>
+                <button class="btn btn-primary">Liên hệ</button>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>ĐỒNG HÀNH CÙNG<br>KHOA HỌC VIỆT</h1>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat</p>
+            <div class="hero-buttons">
+                <button class="btn btn btn-secondary">Đăng ký</button>
+                <button class="btn btn-primary">Liên hệ</button>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const headerWrapper = document.querySelector('.header-wrapper');
+            if (window.scrollY > 50) {
+                headerWrapper.classList.add('scrolled');
+            } else {
+                headerWrapper.classList.remove('scrolled');
+            }
+        });
+
+        // Language toggle switch
+        const langToggle = document.getElementById('langToggle');
+        const sliderText = document.getElementById('sliderText');
+        let isEnglish = false;
+
+        langToggle.addEventListener('click', () => {
+            isEnglish = !isEnglish;
+
+            if (isEnglish) {
+                langToggle.classList.add('en-active');
+                sliderText.textContent = 'En';
+            } else {
+                langToggle.classList.remove('en-active');
+                sliderText.textContent = 'Vi';
+            }
+
+            console.log('Ngôn ngữ hiện tại:', isEnglish ? 'English' : 'Vietnamese');
+        });
+
+        // Smooth scroll for scroll indicator
+        document.querySelector('.scroll-indicator').addEventListener('click', () => {
+            window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+        });
+    </script>
+</body>
+
+</html>

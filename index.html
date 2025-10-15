@@ -4,1173 +4,481 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phù Sa Genomics</title>
+    <title>Phù Sa Genomics - Header & Hero</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/danh-muc.css">
+    <link rel="stylesheet" href="styles/nghien-cuu.css">
+    <link rel="stylesheet" href="styles/san-pham.css">
 
-        body {
-            font-family: 'Arial', 'Segoe UI', sans-serif;
-            color: #fff;
-            overflow-x: hidden;
-        }
+    <link rel="stylesheet" href="styles/footer.css">
 
-        /* Header - Fixed Navigation */
-        .header-top {
-            background: #1a2849;
-            padding: 0.8rem 5%;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .logo-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo-header img {
-            height: 40px;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-menu a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            transition: color 0.3s;
-        }
-
-        .nav-menu a:hover {
-            color: #5ec4d4;
-        }
-
-        .header-actions {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .search-box {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .search-box input {
-            background: transparent;
-            border: none;
-            color: #fff;
-            outline: none;
-            width: 150px;
-        }
-
-        .search-box input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .lang-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: #fff;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            cursor: pointer;
-        }
-
-        /* Hero Section with Background Image */
-        .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%231a2849" width="1200" height="600"/></svg>');
-            background-size: cover;
-            background-position: center;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 8rem 5% 4rem;
-            position: relative;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at center, transparent 0%, rgba(26, 40, 73, 0.5) 100%);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-section h1 {
-            font-size: 4rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero-section p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            opacity: 0.9;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        .btn {
-            padding: 1rem 2.5rem;
-            border: 2px solid #fff;
-            background: transparent;
-            color: #fff;
-            font-size: 1rem;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 600;
-        }
-
-        .btn-primary {
-            background: #fff;
-            color: #1a2849;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
-                transform: translateX(-50%) translateY(0);
-            }
-
-            40% {
-                transform: translateX(-50%) translateY(-10px);
-            }
-
-            60% {
-                transform: translateX(-50%) translateY(-5px);
-            }
-        }
-
-        /* Social Sidebar */
-        .social-sidebar {
-            position: fixed;
-            left: 2rem;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            z-index: 100;
-        }
-
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(26, 40, 73, 0.8);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .social-icon:hover {
-            background: #5ec4d4;
-            transform: scale(1.1);
-        }
-
-        /* Category Section */
-        .category-section {
-            background: linear-gradient(135deg, #e8f4f8 0%, #f5f9fb 100%);
-            padding: 4rem 5%;
-            position: relative;
-        }
-
-        .category-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .category-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .category-btn {
-            background: #1a2849;
-            color: #fff;
-            padding: 1.5rem 2rem;
-            border: none;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-align: left;
-        }
-
-        .category-btn:hover,
-        .category-btn.active {
-            background: #2d4470;
-            transform: translateX(10px);
-        }
-
-        .category-image {
-            width: 100%;
-            height: 400px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .category-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Research Section */
-        .research-section {
-            background: linear-gradient(135deg, #e8f4f8 0%, #d4ebf2 100%);
-            padding: 5rem 5%;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #1a2849;
-            text-transform: uppercase;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .product-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .product-card {
-            background: #fff;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .product-image {
-            height: 250px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-
-        .product-image::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 50%;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-        }
-
-        .product-title {
-            position: absolute;
-            bottom: 1rem;
-            left: 1.5rem;
-            color: #fff;
-            font-size: 1.3rem;
-            font-weight: bold;
-            z-index: 2;
-        }
-
-        .product-content {
-            padding: 1.5rem;
-            color: #333;
-        }
-
-        .product-content p {
-            font-size: 0.9rem;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .view-more-btn {
-            background: #1a2849;
-            color: #fff;
-            padding: 0.8rem 2rem;
-            border: none;
-            border-radius: 25px;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 3rem;
-        }
-
-        .view-more-btn:hover {
-            background: #2d4470;
-            transform: translateX(5px);
-        }
-
-        .view-more-container {
-            text-align: center;
-        }
-
-        /* Products Section - Dark Blue */
-        .products-section {
-            background: #0d1b3e;
-            padding: 5rem 5%;
-            position: relative;
-        }
-
-        .products-section .section-title {
-            color: #fff;
-        }
-
-        .products-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 2rem;
-        }
-
-        .product-main-card {
-            background: #fff;
-            border-radius: 20px;
-            overflow: hidden;
-            padding: 2rem;
-        }
-
-        .product-main-card img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .product-main-title {
-            color: #5ec4d4;
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin: 1rem 0 0.5rem;
-        }
-
-        .product-main-subtitle {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .product-side-cards {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .product-side-card {
-            background: #5ec4d4;
-            border-radius: 15px;
-            padding: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            transition: all 0.3s;
-        }
-
-        .product-side-card:hover {
-            transform: translateX(10px);
-            box-shadow: 0 10px 30px rgba(94, 196, 212, 0.3);
-        }
-
-        .product-side-card img {
-            width: 120px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .product-side-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .product-side-content p {
-            font-size: 0.85rem;
-            opacity: 0.9;
-        }
-
-        /* News Section */
-        .news-section {
-            background: #0d1b3e;
-            padding: 5rem 5% 6rem;
-        }
-
-        .news-section .section-title {
-            color: #fff;
-        }
-
-        .news-slider {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .news-card {
-            background: #fff;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s;
-        }
-
-        .news-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .news-image {
-            height: 300px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .news-content {
-            padding: 1.5rem;
-            color: #333;
-        }
-
-        .news-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-            color: #1a2849;
-        }
-
-        .news-content p {
-            font-size: 0.9rem;
-            line-height: 1.6;
-            color: #666;
-        }
-
-        .news-action {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 3rem;
-        }
-
-        .news-dots {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .dot.active {
-            background: #5ec4d4;
-            width: 30px;
-            border-radius: 5px;
-        }
-
-        .news-more-btn {
-            background: #fff;
-            color: #1a2849;
-            padding: 1rem 2rem;
-            border-radius: 25px;
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .news-more-btn:hover {
-            background: #5ec4d4;
-            color: #fff;
-        }
-
-        /* Partners Section */
-        .partners-section {
-            background: #f8f9fa;
-            padding: 3rem 5%;
-        }
-
-        .partners-logos {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-
-        .partner-logo {
-            height: 60px;
-            opacity: 0.7;
-            transition: all 0.3s;
-        }
-
-        .partner-logo:hover {
-            opacity: 1;
-            transform: scale(1.1);
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: #fff;
-            padding: 4rem 5%;
-        }
-
-        .contact-section .section-title {
-            color: #1a2849;
-        }
-
-        .contact-info-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .contact-info-item {
-            text-align: center;
-            color: #333;
-        }
-
-        .contact-info-item i {
-            font-size: 2rem;
-            color: #5ec4d4;
-            margin-bottom: 1rem;
-        }
-
-        .contact-info-item h4 {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            color: #1a2849;
-            font-weight: 600;
-        }
-
-        .contact-info-item p {
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        /* Newsletter */
-        .newsletter {
-            background: #1a2849;
-            padding: 2rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .newsletter i {
-            font-size: 3rem;
-            color: #5ec4d4;
-        }
-
-        .newsletter-content {
-            flex: 1;
-            color: #fff;
-        }
-
-        .newsletter-content p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .newsletter-form input {
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 5px;
-            width: 300px;
-            outline: none;
-        }
-
-        .newsletter-form button {
-            padding: 0.8rem 2rem;
-            background: #5ec4d4;
-            border: none;
-            border-radius: 5px;
-            color: #fff;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .newsletter-form button:hover {
-            background: #4ab3c9;
-        }
-
-        /* Footer */
-        footer {
-            background: #0d1b3e;
-            color: #fff;
-            padding: 4rem 5% 2rem;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            color: #5ec4d4;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
-
-        .footer-section a:hover {
-            color: #5ec4d4;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
-        }
-
-        .nav-arrows {
-            position: fixed;
-            right: 2rem;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            z-index: 100;
-        }
-
-        .nav-arrow {
-            width: 40px;
-            height: 40px;
-            background: rgba(26, 40, 73, 0.8);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .nav-arrow:hover {
-            background: #5ec4d4;
-            transform: scale(1.1);
-        }
-
-        @media (max-width: 1024px) {
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .category-container {
-                grid-template-columns: 1fr;
-            }
-
-            .news-slider,
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <!-- Header -->
-    <header class="header-top">
-        <div class="header-content">
-            <div class="logo-header">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'%3E%3Ctext x='5' y='35' font-size='30' fill='%235ec4d4' font-weight='bold'%3EPS%3C/text%3E%3C/svg%3E"
-                    alt="Logo">
+    <div class="phusa-header-wrapper">
+        <header class="phusa-header-top">
+            <div class="phusa-header-content">
+                <div class="phusa-logo-header">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'%3E%3Ctext x='10' y='50' font-family='Arial' font-weight='bold' font-size='40' fill='%23667eea'%3EPHUSA%3C/text%3E%3Ctext x='10' y='70' font-family='Arial' font-size='12' fill='%23764ba2'%3EGENOMICS%3C/text%3E%3C/svg%3E"
+                        alt="Phusa Genomics Logo">
+                </div>
+
+                <nav>
+                    <ul class="phusa-nav-menu">
+                        <li><a href="#about">VỀ CHÚNG TÔI</a></li>
+                        <li><a href="#products">SẢN PHẨM <i class="fas fa-chevron-down"></i></a></li>
+                        <li><a href="#news">TIN TỨC <i class="fas fa-chevron-down"></i></a></li>
+                        <li><a href="#opce">OPCE <i class="fas fa-chevron-down"></i></a></li>
+                    </ul>
+                </nav>
+
+                <div class="phusa-header-actions">
+                    <div class="phusa-search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Tìm kiếm...">
+                    </div>
+                    <div class="phusa-language-toggle" id="phusaLangToggle">
+                        <div class="phusa-toggle-slider">
+                            <span id="phusaSliderText">Vi</span>
+                        </div>
+                        <div class="phusa-language-options">
+                            <div class="phusa-lang-option phusa-vi">Vi</div>
+                            <div class="phusa-lang-option phusa-en">En</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Toggle Button -->
+                <div class="phusa-mobile-toggle" id="phusaMobileToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="#about">VỀ CHÚNG TÔI</a></li>
-                    <li><a href="#products">SẢN PHẨM ▼</a></li>
-                    <li><a href="#news">TIN TỨC ▼</a></li>
-                    <li><a href="#opce">OPCE ▼</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
-                <div class="search-box">
+        </header>
+    </div>
+
+    <!-- Mobile Sidebar Menu -->
+    <div class="phusa-mobile-overlay" id="phusaMobileOverlay"></div>
+    <div class="phusa-mobile-sidebar" id="phusaMobileSidebar">
+        <div class="phusa-mobile-sidebar-content">
+            <ul class="phusa-mobile-nav-menu">
+                <li><a href="#about">VỀ CHÚNG TÔI</a></li>
+                <li><a href="#products">SẢN PHẨM <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#news">TIN TỨC <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#opce">OPCE <i class="fas fa-chevron-right"></i></a></li>
+            </ul>
+
+            <div class="phusa-mobile-actions">
+                <div class="phusa-mobile-search-box">
                     <i class="fas fa-search"></i>
                     <input type="text" placeholder="Tìm kiếm...">
                 </div>
-                <button class="lang-btn">VI ▼</button>
+                <div class="phusa-language-toggle" id="phusaMobileLangToggle">
+                    <div class="phusa-toggle-slider">
+                        <span id="phusaMobileSliderText">Vi</span>
+                    </div>
+                    <div class="phusa-language-options">
+                        <div class="phusa-lang-option phusa-vi">Vi</div>
+                        <div class="phusa-lang-option phusa-en">En</div>
+                    </div>
+                </div>
             </div>
         </div>
-    </header>
-
-    <!-- Social Sidebar -->
-    <div class="social-sidebar">
-        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
-        <a href="#" class="social-icon"><i class="fas fa-phone"></i></a>
-        <a href="#" class="social-icon"><i class="fas fa-user"></i></a>
     </div>
 
-    <!-- Navigation Arrows -->
-    <div class="nav-arrows">
-        <div class="nav-arrow"><i class="fas fa-chevron-up"></i></div>
-        <div class="nav-arrow"><i class="fas fa-chevron-down"></i></div>
+    <!-- Social Sidebar -->
+    <div class="phusa-social-sidebar">
+        <a href="#" class="phusa-social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="phusa-social-icon"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="phusa-social-icon"><i class="fas fa-envelope"></i></a>
+        <a href="#" class="phusa-social-icon"><i class="fas fa-phone"></i></a>
+        <a href="#" class="phusa-social-icon"><i class="fas fa-user"></i></a>
+        <a href="#" class="phusa-social-icon"><i class="fas fa-bell"></i></a>
     </div>
 
     <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-content">
+    <section class="phusa-hero-section">
+        <div class="phusa-hero-content">
             <h1>ĐỒNG HÀNH CÙNG<br>KHOA HỌC VIỆT</h1>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
                 laoreet dolore magna aliquam erat volutpat</p>
-            <div class="hero-buttons">
-                <button class="btn btn-primary">Đăng ký</button>
-                <button class="btn">Liên hệ</button>
+            <div class="phusa-hero-buttons">
+                <button class="phusa-btn phusa-btn-secondary">Đăng ký</button>
+                <button class="phusa-btn phusa-btn-primary">Liên hệ</button>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <i class="fas fa-chevron-down" style="font-size: 2rem; color: #fff;"></i>
-        </div>
-    </section>
-
-    <!-- Category Section -->
-    <section class="category-section">
-        <div class="category-container">
-            <div class="category-buttons">
-                <button class="category-btn active">GIÁO DỤC</button>
-                <button class="category-btn">NGHIÊN CỨU</button>
-                <button class="category-btn">DỊCH VỤ</button>
-                <button class="category-btn">NÔNG NGHIỆP</button>
-            </div>
-            <div class="category-image">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect fill='%235ec4d4' width='800' height='400'/%3E%3C/svg%3E"
-                    alt="Category">
-            </div>
+        <div class="phusa-scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
-    <!-- Research Section -->
-    <section class="research-section" id="research">
-        <h2 class="section-title">NGHIÊN CỨU NỔI BẬT</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="product-image"
-                    style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'%3E%3Crect fill=\'%23d4a373\' width=\'400\' height=\'300\'/%3E%3C/svg%3E');">
-                    <h3 class="product-title">Spotcheck &<br>bệnh học tôm</h3>
+
+    <!-- Danh mục -->
+
+    <div class="phusa-danhmuc-container-bg">
+        <div class="phusa-danhmuc-container">
+            <div class="phusa-danhmuc-sidebar">
+                <div class="phusa-danhmuc-card phusa-danhmuc-active" data-category="giao-duc">
+                    <img src="images/giao-duc.png" alt="Giáo dục" class="phusa-danhmuc-card-image">
+                    <div class="phusa-danhmuc-card-title">GIÁO DỤC</div>
                 </div>
-                <div class="product-content">
-                    <p>Spotcheck và Bệnh học tôm là hai khái niệm bổ sung cho nhau trong nuôi tôm: Spotcheck (Kiểm tra
-                        nhanh) là hành động thực tiễn lấy mẫu tôm hoặc mẫu nước định kỳ hoặc khi...</p>
+
+                <div class="phusa-danhmuc-card" data-category="nghien-cuu">
+                    <img src="images/nghien-cuu.png" alt="Nghiên cứu" class="phusa-danhmuc-card-image">
+                    <div class="phusa-danhmuc-card-title">NGHIÊN CỨU</div>
+                </div>
+
+                <div class="phusa-danhmuc-card" data-category="dich-vu">
+                    <img src="images/dich-vu.png" alt="Dịch vụ" class="phusa-danhmuc-card-image">
+                    <div class="phusa-danhmuc-card-title">DỊCH VỤ</div>
+                </div>
+
+                <div class="phusa-danhmuc-card" data-category="nong-nghiep">
+                    <img src="images/nong-nghiep.png" alt="Nông nghiệp" class="phusa-danhmuc-card-image">
+                    <div class="phusa-danhmuc-card-title">NÔNG NGHIỆP</div>
                 </div>
             </div>
 
-            <div class="product-card">
-                <div class="product-image"
-                    style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'%3E%3Crect fill=\'%231a4d8c\' width=\'400\' height=\'300\'/%3E%3C/svg%3E');">
-                    <h3 class="product-title">Long Oligo &<br>NGS Sequencing</h3>
-                </div>
-                <div class="product-content">
-                    <p>NGS (Next-Generation Sequencing - Giải trình tự thế hệ tiếp theo) là một công nghệ tiên tiến cho
-                        phép giải trình tự đồng thời hàng triệu đoạn DNA/RNA, giúp phân...</p>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image"
-                    style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'%3E%3Crect fill=\'%2363b3b3\' width=\'400\' height=\'300\'/%3E%3C/svg%3E');">
-                    <h3 class="product-title">Magic mix 2x</h3>
-                </div>
-                <div class="product-content">
-                    <p>Magic Mix PCR 2X là hỗn hợp dung dịch có nồng độ 2X của Taq DNA Polymerase, dNTPs và các thành
-                        phần cần thiết để thực hiện PCR ngoại trừ khuôn DNA và mồi...</p>
+            <div class="phusa-danhmuc-main">
+                <div class="phusa-danhmuc-banner">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1400&h=800&fit=crop"
+                        alt="Banner chính" class="phusa-danhmuc-banner-image" id="mainBanner">
                 </div>
             </div>
         </div>
-        <div class="view-more-container">
-            <button class="view-more-btn">
-                Xem thêm <i class="fas fa-arrow-right"></i>
-            </button>
-        </div>
-    </section>
+    </div>
 
-    <!-- Products Section -->
-    <section class="products-section" id="products">
-        <h2 class="section-title">SẢN PHẨM</h2>
-        <div class="products-grid">
-            <div class="product-main-card">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Crect fill='%23f0f0f0' width='500' height='300'/%3E%3C/svg%3E"
-                    alt="Spotcheck Platform">
-                <h3 class="product-main-title">Spotcheck Platforms</h3>
-                <p class="product-main-subtitle">Now with new improved system</p>
-                <a href="#" style="color: #5ec4d4; text-decoration: none; font-weight: 600;">Chi tiết →</a>
-            </div>
 
-            <div class="product-side-cards">
-                <div class="product-side-card">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 100'%3E%3Crect fill='%234a9eb8' width='120' height='100'/%3E%3C/svg%3E"
-                        alt="3 in 1 Device">
-                    <div class="product-side-content">
-                        <h3>New 3 in 1 Protable Device</h3>
-                        <p>A next-generation portal system delivering speed...</p>
-                        <a href="#" style="color: #fff; text-decoration: none; font-size: 0.85rem;">Chi tiết →</a>
+
+
+    <!--  Nghiên cứu -->
+    <div class="phusa-nghien-cuu-container">
+        <div class="phusa-nghien-cuu-background">
+            <h1 class="phusa-nghien-cuu-title">Nghiên Cứu Nổi Bật</h1>
+
+            <div class="phusa-nghien-cuu-grid">
+
+                <!-- Card 1: Spotcheck -->
+                <div class="phusa-nghien-cuu-card">
+                    <div class="phusa-nghien-cuu-card-inner">
+                        <img src="images/Spotcheck & bệnh học tôm.png" alt="Spotcheck & bệnh học tôm"
+                            class="phusa-nghien-cuu-card-image">
+                        <div class="phusa-nghien-cuu-card-overlay">
+                            <div class="phusa-nghien-cuu-card-header">
+                                <h2 class="phusa-nghien-cuu-card-title">Spotcheck &<br>bệnh học tôm</h2>
+                                <p class="phusa-nghien-cuu-card-description">
+                                    Spotcheck và Bệnh học tôm là hai khái niệm bổ sung cho nhau trong nuôi tôm.
+                                    Spotcheck (Kiểm
+                                    tra nhanh) là hành động theo dõi sức khỏe tôm hoặc mẫu nước định kỳ hàng ngày.
+                                </p>
+                            </div>
+                        </div>
                     </div>
+                    <a href="#spotcheck" class="phusa-nghien-cuu-card-link">
+                        <span>Xem thêm</span>
+                        <div class="phusa-nghien-cuu-card-arrow">→</div>
+                    </a>
                 </div>
 
-                <div class="product-side-card">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 100'%3E%3Crect fill='%234a9eb8' width='120' height='100'/%3E%3C/svg%3E"
-                        alt="African fish">
-                    <div class="product-side-content">
-                        <h3>African fish disease research</h3>
-                        <p>Fish Pathogen Research Across Africa...</p>
-                        <a href="#" style="color: #fff; text-decoration: none; font-size: 0.85rem;">Chi tiết →</a>
+                <!-- Card 2: Long Oligo & NGS -->
+                <div class="phusa-nghien-cuu-card">
+                    <div class="phusa-nghien-cuu-card-inner">
+                        <img src="images/Long Oligo & NGS Sequencing.png" alt="Long Oligo & NGS Sequencing"
+                            class="phusa-nghien-cuu-card-image">
+                        <div class="phusa-nghien-cuu-card-overlay">
+                            <div class="phusa-nghien-cuu-card-header">
+                                <h2 class="phusa-nghien-cuu-card-title">Long Oligo &<br>NGS Sequencing</h2>
+                                <p class="phusa-nghien-cuu-card-description">
+                                    NGS (Next-Generation Sequencing - Giải trình tự thế hệ tiếp theo) là một công nghệ
+                                    tiên
+                                    tiến
+                                    cho phép giải trình tự đồng thời hàng triệu đoạn DNA/RNA, giúp phân tích dữ liệu di
+                                    truyền.
+                                </p>
+                            </div>
+                        </div>
                     </div>
+                    <a href="#long-oligo" class="phusa-nghien-cuu-card-link">
+                        <span>Xem thêm</span>
+                        <div class="phusa-nghien-cuu-card-arrow">→</div>
+                    </a>
                 </div>
+
+                <!-- Card 3: Magic Mix 2x -->
+                <div class="phusa-nghien-cuu-card">
+                    <div class="phusa-nghien-cuu-card-inner">
+                        <img src="images/Magic mix 2x.png" alt="Magic mix 2x" class="phusa-nghien-cuu-card-image">
+                        <div class="phusa-nghien-cuu-card-overlay">
+                            <div class="phusa-nghien-cuu-card-header">
+                                <h2 class="phusa-nghien-cuu-card-title">Magic mix 2x NGS Sequencing</h2>
+                                <p class="phusa-nghien-cuu-card-description">
+                                    Magic Mix PCR 2x là hỗn hợp dụng dịch có nồng độ 2X của Taq DNA Polymerase, dNTPs và
+                                    các
+                                    thành phần cần thiết để thực hiện PCR ngoại trừ khuôn DNA và mồi.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#magic-mix" class="phusa-nghien-cuu-card-link">
+                        <span>Xem thêm</span>
+                        <div class="phusa-nghien-cuu-card-arrow">→</div>
+                    </a>
+                </div>
+
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- News Section -->
-    <section class="news-section" id="news">
-        <h2 class="section-title">TIN TỨC</h2>
-        <div class="news-slider">
-            <div class="news-card">
-                <div class="news-image"
-                    style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'%3E%3Crect fill=\'%235ec4d4\' width=\'400\' height=\'300\'/%3E%3C/svg%3E');">
+
+
+    <!-- Sản phẩm -->
+    <div class="phusa-san-pham-container-bg">
+
+
+        <h1 class="phusa-san-pham-title-main">Sản phẩm</h1>
+
+        <div class="phusa-san-pham-container">
+
+            <!-- Main Product Card -->
+            <div class="phusa-san-pham-card phusa-san-pham-main">
+                <div class="phusa-san-pham-content">
+                    <h1 class="phusa-san-pham-title">Sphotcheck Platforms</h1>
+                    <p class="phusa-san-pham-subtitle">Now with new improved system</p>
+                    <a class="phusa-san-pham-link">Chi tiết</a>
                 </div>
-                <div class="news-content">
-                    <h3>ĐÀI HỌC MỞ TP HỒ CHÍ MINH</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-                        ut laoreet dolore magna aliquam erat volutpat...</p>
+                <div class="phusa-san-pham-image-wrapper">
+                    <img class="phusa-san-pham-image-main" src="images/anh1.png" alt="Sphotcheck Platform"
+                        class="phusa-san-pham-image">
                 </div>
             </div>
 
-            <div class="news-card">
-                <div class="news-image"
-                    style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'%3E%3Crect fill=\'%235ec4d4\' width=\'400\' height=\'300\'/%3E%3C/svg%3E');">
+            <!-- Secondary Card 1 - Portable Device -->
+            <div class="phusa-san-pham-card phusa-san-pham-secondary phusa-san-pham-device">
+                <div class="phusa-san-pham-content">
+                    <h2 class="phusa-san-pham-title">New 3 in 1 Protable Devce</h2>
+                    <p class="phusa-san-pham-subtitle">A next-generation portal system delivering speed...</p>
+                    <a class="phusa-san-pham-link">Chi tiết</a>
                 </div>
-                <div class="news-content">
-                    <h3>HỘI THẢO KHOA HỌC</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-                        ut laoreet dolore magna aliquam erat volutpat...</p>
+                <div class="phusa-san-pham-image-wrapper">
+                    <img src="images/anh2.png" alt="3 in 1 Portable Device" class="phusa-san-pham-image">
                 </div>
             </div>
 
-            <div class="news-card">
-                <div class="news-image"
-                    style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'%3E%3Crect fill=\'%235ec4d4\' width=\'400\' height=\'300\'/%3E%3C/svg%3E');">
+            <!-- Secondary Card 2 - Fish Research -->
+            <div class="phusa-san-pham-card phusa-san-pham-secondary">
+                <div class="phusa-san-pham-content">
+                    <h2 class="phusa-san-pham-title">African fish disease research</h2>
+                    <p class="phusa-san-pham-subtitle">Fish Pathoagen Research Across Africa...</p>
+                    <a class="phusa-san-pham-link">Chi tiết</a>
                 </div>
-                <div class="news-content">
-                    <h3>SỰ KIỆN CÔNG NGHỆ</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-                        ut laoreet dolore magna aliquam erat volutpat...</p>
+                <div class="phusa-san-pham-image-wrapper">
+                    <img style="width: 200px;" src="images/anh2.png" alt="African Fish Disease Research"
+                        class="phusa-san-pham-image">
                 </div>
             </div>
+
         </div>
 
-        <div class="news-action">
-            <div class="news-dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
-            <button class="news-more-btn">
-                <i class="fas fa-play-circle"></i> Tin tức mới
-            </button>
-        </div>
-    </section>
 
-    <!-- Partners Section -->
-    <section class="partners-section">
-        <div class="partners-logos">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Ctext x='10' y='35' font-size='20' fill='%231a2849' font-weight='bold'%3ELOGO 1%3C/text%3E%3C/svg%3E"
-                alt="Partner 1" class="partner-logo">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Ctext x='10' y='35' font-size='20' fill='%231a2849' font-weight='bold'%3ELOGO 2%3C/text%3E%3C/svg%3E"
-                alt="Partner 2" class="partner-logo">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Ctext x='10' y='35' font-size='20' fill='%231a2849' font-weight='bold'%3ELOGO 3%3C/text%3E%3C/svg%3E"
-                alt="Partner 3" class="partner-logo">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Ctext x='10' y='35' font-size='20' fill='%231a2849' font-weight='bold'%3EYALE%3C/text%3E%3C/svg%3E"
-                alt="Yale" class="partner-logo">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 60'%3E%3Ctext x='10' y='35' font-size='20' fill='%231a2849' font-weight='bold'%3ELOGO 5%3C/text%3E%3C/svg%3E"
-                alt="Partner 5" class="partner-logo">
-        </div>
-    </section>
+    </div>
 
-    <!-- Contact Section -->
-    <section class="contact-section">
-        <h2 class="section-title">LIÊN HỆ VỚI CHÚNG TÔI</h2>
 
-        <div class="contact-info-grid">
-            <div class="contact-info-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <h4>Địa chỉ</h4>
-                <p>K1.15-16, Võ Nguyên Giáp,<br>phường Phú Thứ, quận Cái Răng,<br>TP. Cần Thơ.</p>
-            </div>
-
-            <div class="contact-info-item">
-                <i class="fas fa-envelope"></i>
-                <h4>Email</h4>
-                <p>cskh@phusagenomics.com</p>
-            </div>
-
-            <div class="contact-info-item">
-                <i class="fas fa-phone"></i>
-                <h4>Hotline</h4>
-                <p>0292651568</p>
-            </div>
-
-            <div class="contact-info-item">
-                <i class="fas fa-clock"></i>
-                <h4>Giờ làm việc</h4>
-                <p>Thứ Hai - Thứ Sáu<br>7:00 sáng - 5:00 chiều</p>
-            </div>
-        </div>
-
-        <div class="newsletter">
-            <i class="fas fa-envelope"></i>
-            <div class="newsletter-content">
-                <p><strong>Đăng ký để nhận những thông tin khuyến mãi, chiết khấu hấp dẫn</strong></p>
-            </div>
-            <form class="newsletter-form" onsubmit="return false;">
-                <input type="email" placeholder="Email của bạn...">
-                <button type="submit">Gửi ngay</button>
-            </form>
-        </div>
-    </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Đặt Hàng</h4>
-                <ul>
-                    <li><a href="#">Thông tin đơn hàng</a></li>
-                    <li><a href="#">Hỗ trợ đơn hàng</a></li>
-                    <li><a href="#">Đặt hàng nhanh</a></li>
-                    <li><a href="#">Lưu trữ đơn hàng</a></li>
-                    <li><a href="#">Quỹ tích lũy</a></li>
-                </ul>
-            </div>
+    <img src="images/img-footer.png" alt="footer" class="footer-img">
 
-            <div class="footer-section">
-                <h4>Hỗ Trợ</h4>
-                <ul>
-                    <li><a href="#">Trung tâm hỗ trợ</a></li>
-                    <li><a href="#">Hỗ trợ kỹ thuật</a></li>
-                    <li><a href="#">Mẫu biểu văn bản</a></li>
-                    <li><a href="#">Báo cáo vấn đề</a></li>
-                </ul>
-            </div>
+    <style>
+        .footer-img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+    <footer class="phusa-footer-wrapper">
+        <!-- Contact Section -->
+        <div class="phusa-contact-section">
+            <h2 class="phusa-contact-title">LIÊN HỆ VỚI CHÚNG TÔI</h2>
 
-            <div class="footer-section">
-                <h4>Tái Nguyên</h4>
-                <ul>
-                    <li><a href="#">Trung tâm học thuật</a></li>
-                    <li><a href="#">Đào tạo PCR</a></li>
-                    <li><a href="#">Thông tin khuyến mãi</a></li>
-                    <li><a href="#">Sự kiện</a></li>
-                    <li><a href="#">Social media</a></li>
-                </ul>
-            </div>
+            <div class="phusa-contact-grid">
+                <!-- Địa chỉ -->
+                <div class="phusa-contact-item">
+                    <div class="phusa-contact-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                            <circle cx="12" cy="9" r="2.5" />
+                        </svg>
+                    </div>
+                    <div class="phusa-contact-label">Địa chỉ</div>
+                    <div class="phusa-contact-text">
+                        K1.15-16, Võ Nguyên Giáp,<br>
+                        phường Phú Thủy, quận Cái<br>
+                        Răng, TP. Cần Thơ.
+                    </div>
+                </div>
 
-            <div class="footer-section">
-                <h4>Về Phù Sa Group</h4>
-                <ul>
-                    <li><a href="#">Về chúng tôi</a></li>
-                    <li><a href="#">Tuyển dụng</a></li>
-                    <li><a href="#">Hợp tác</a></li>
-                    <li><a href="#">Tin tức</a></li>
-                    <li><a href="#">Chứng nhận</a></li>
-                </ul>
-            </div>
+                <!-- Email -->
+                <div class="phusa-contact-item">
+                    <div class="phusa-contact-icon">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="5" width="18" height="14" rx="2" />
+                            <path d="M3 7l9 6 9-6" />
+                        </svg>
+                    </div>
+                    <div class="phusa-contact-label">Email</div>
+                    <div class="phusa-contact-text">
+                        cskh@phuagenomics.com
+                    </div>
+                </div>
 
-            <div class="footer-section">
-                <h4>Danh mục</h4>
-                <ul>
-                    <li><a href="#">Công nghệ Phù Sa</a></li>
-                    <li><a href="#">Hệ thống tự động hóa</a></li>
-                    <li><a href="#">Sinh phẩm</a></li>
-                    <li><a href="#">Dịch vụ</a></li>
-                    <li><a href="#">OPCen</a></li>
-                </ul>
+                <!-- Hotline -->
+                <div class="phusa-contact-item">
+                    <div class="phusa-contact-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                        </svg>
+                    </div>
+                    <div class="phusa-contact-label">Hotlinel</div>
+                    <div class="phusa-contact-text">
+                        0292651568
+                    </div>
+                </div>
+
+                <!-- Giờ làm việc -->
+                <div class="phusa-contact-item">
+                    <div class="phusa-contact-icon">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 6v6l4 2" />
+                        </svg>
+                    </div>
+                    <div class="phusa-contact-label">Giờ làm việc</div>
+                    <div class="phusa-contact-text">
+                        Thứ Hai - Thứ Sáu<br>
+                        7:00 sáng - 5:00 chiều
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="footer-bottom">
-            <p>© 2025 Bản Quyền Thuộc Về Công Ty Cổ Phần Phù Sa Genomics</p>
+        <!-- Newsletter Section -->
+        <div class="phusa-newsletter-section">
+            <div class="phusa-newsletter-container">
+                <div class="phusa-newsletter-icon">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="5" width="18" height="14" rx="2" />
+                        <path d="M3 7l9 6 9-6" />
+                    </svg>
+                </div>
+                <div class="phusa-newsletter-text">
+                    Đăng ký để nhận những thông tin khuyến mãi, chiết khấu hấp dẫn
+                    <!-- <form class="phusa-newsletter-form">
+                            <input type="email" class="phusa-newsletter-input" placeholder="Nhập email của bạn">
+                            <button type="submit" class="phusa-newsletter-button">Xác nhận</button>
+                        </form> -->
+                    <div class="input-container">
+                        <input type="text" placeholder="" />
+                        <button>Xác nhận</button>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer Main -->
+        <div class="phusa-footer-main">
+            <div class="phusa-footer-content">
+                <!-- Đặt Hàng -->
+                <div class="phusa-footer-column">
+                    <h3>Đặt Hàng</h3>
+                    <ul class="phusa-footer-links">
+                        <li><a href="#">Thông tin đơn hàng</a></li>
+                        <li><a href="#">Hỗ trợ đơn hàng</a></li>
+                        <li><a href="#">Đặt hàng nhanh</a></li>
+                        <li><a href="#">Lưu trữ đơn hàng</a></li>
+                        <li><a href="#">Quy tích lũy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Hỗ Trợ -->
+                <div class="phusa-footer-column">
+                    <h3>Hỗ Trợ</h3>
+                    <ul class="phusa-footer-links">
+                        <li><a href="#">Trung tâm hỗ trợ</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Hỗ trợ kỹ thuật</a></li>
+                        <li><a href="#">Mẫu biểu văn bản</a></li>
+                        <li><a href="#">Báo cáo văn đề website</a></li>
+                    </ul>
+                </div>
+
+                <!-- Tài Nguyên -->
+                <div class="phusa-footer-column">
+                    <h3>Tài Nguyên</h3>
+                    <ul class="phusa-footer-links">
+                        <li><a href="#">Trung tâm học thuật</a></li>
+                        <li><a href="#">Dao tao PCR</a></li>
+                        <li><a href="#">Thông tin khuyến mãi</a></li>
+                        <li><a href="#">Sự kiện</a></li>
+                        <li><a href="#">Socialmedia</a></li>
+                    </ul>
+                </div>
+
+                <!-- Về Phù Sa Group -->
+                <div class="phusa-footer-column">
+                    <h3>Về Phù Sa Group</h3>
+                    <ul class="phusa-footer-links">
+                        <li><a href="#">Về chúng tôi</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#">Hợp tác</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Chứng nhận</a></li>
+                    </ul>
+                </div>
+
+                <!-- Danh mục -->
+                <div class="phusa-footer-column">
+                    <h3>Danh mục</h3>
+                    <ul class="phusa-footer-links">
+                        <li><a href="#">Công nghệ Phù Sa</a></li>
+                        <li><a href="#">Hệ thống tự động hóa</a></li>
+                        <li><a href="#">Sinh phẩm</a></li>
+                        <li><a href="#">Dịch vụ</a></li>
+                        <li><a href="#">OPCen</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="phusa-footer-bottom">
+            <p class="phusa-copyright">© 2025 Bản Quyền Thuộc Về Công Ty Cổ Phần Phù Sa Genomics</p>
         </div>
     </footer>
 
-    <script>
-        // Smooth scroll for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+    <!-- Scroll to Top Button -->
+    <div class="phusa-scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <svg viewBox="0 0 24 24">
+            <path d="M18 15l-6-6-6 6" />
+        </svg>
+    </div>
 
-        // Category button interactions
-        const categoryBtns = document.querySelectorAll('.category-btn');
-        categoryBtns.forEach(btn => {
-            btn.addEventListener('click', function () {
-                categoryBtns.forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
 
-        // News slider dots
-        const dots = document.querySelectorAll('.dot');
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', function () {
-                dots.forEach(d => d.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
 
-        // Navigation arrows
-        const navArrows = document.querySelectorAll('.nav-arrow');
-        navArrows[0].addEventListener('click', () => {
-            window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
-        });
-        navArrows[1].addEventListener('click', () => {
-            window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
-        });
 
-        // Header scroll effect
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.header-top');
-            const currentScroll = window.pageYOffset;
+    <script src="script/header.js"></script>
+    <script src="script/danh-muc.js"></script>
 
-            if (currentScroll > 100) {
-                header.style.background = 'rgba(26, 40, 73, 0.95)';
-            } else {
-                header.style.background = '#1a2849';
-            }
-
-            lastScroll = currentScroll;
-        });
-    </script>
+    <!-- Thêm script vào cuối body, trước thẻ đóng </body> -->
+    <script src="script/navigation-buttons.js"></script>
 </body>
 
 </html>

@@ -18,6 +18,15 @@
             padding: 20px;
         }
 
+        .phusa-danhmuc-container-bg {
+           
+            /* background-color: white; */
+            border-radius: 30px;
+            /* padding: 20px; */
+            margin-bottom: 50px;
+            margin-top: 50px;
+        }
+
         .phusa-danhmuc-sidebar {
             display: flex;
             flex-direction: column;

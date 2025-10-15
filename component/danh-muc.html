@@ -12,25 +12,25 @@
     <div class="phusa-danhmuc-container">
         <div class="phusa-danhmuc-sidebar">
             <div class="phusa-danhmuc-card phusa-danhmuc-active" data-category="giao-duc">
-                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=400&h=250&fit=crop"
+                <img src="../images/giao-duc.png"
                     alt="Giáo dục" class="phusa-danhmuc-card-image">
                 <div class="phusa-danhmuc-card-title">GIÁO DỤC</div>
             </div>
 
             <div class="phusa-danhmuc-card" data-category="nghien-cuu">
-                <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=400&h=250&fit=crop"
+                <img src="../images/nghien-cuu.png"
                     alt="Nghiên cứu" class="phusa-danhmuc-card-image">
                 <div class="phusa-danhmuc-card-title">NGHIÊN CỨU</div>
             </div>
 
             <div class="phusa-danhmuc-card" data-category="dich-vu">
-                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=250&fit=crop"
+                <img src="../images/dich-vu.png"
                     alt="Dịch vụ" class="phusa-danhmuc-card-image">
                 <div class="phusa-danhmuc-card-title">DỊCH VỤ</div>
             </div>
 
             <div class="phusa-danhmuc-card" data-category="nong-nghiep">
-                <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=400&h=250&fit=crop"
+                <img src="../images/nong-nghiep.png"
                     alt="Nông nghiệp" class="phusa-danhmuc-card-image">
                 <div class="phusa-danhmuc-card-title">NÔNG NGHIỆP</div>
             </div>
@@ -46,24 +46,25 @@
 
     <script>
         const cards = document.querySelectorAll('.phusa-danhmuc-card');
-        const mainBanner = document.getElementById('mainBanner');
+            const mainBanner = document.getElementById('mainBanner');
 
-        const bannerImages = {
-            'giao-duc': 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1400&h=800&fit=crop',
-            'nghien-cuu': 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1400&h=800&fit=crop',
-            'dich-vu': 'https://images.unsplash.com/photo-1556761175-4b46a572b786?w=1400&h=800&fit=crop',
-            'nong-nghiep': 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=1400&h=800&fit=crop'
-        };
+            const bannerImages = {
+                'giao-duc': 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1400&h=800&fit=crop',
+                'nghien-cuu': 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1400&h=800&fit=crop',
+                'dich-vu': 'https://images.unsplash.com/photo-1556761175-4b46a572b786?w=1400&h=800&fit=crop',
+                'nong-nghiep': 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=1400&h=800&fit=crop',
+            };
 
-        cards.forEach(card => {
-            card.addEventListener('click', function () {
-                cards.forEach(c => c.classList.remove('phusa-danhmuc-active'));
-                this.classList.add('phusa-danhmuc-active');
+            cards.forEach((card) => {
+                card.addEventListener('click', function () {
+                    cards.forEach((c) => c.classList.remove('phusa-danhmuc-active'));
+                    this.classList.add('phusa-danhmuc-active');
 
-                const category = this.getAttribute('data-category');
-                mainBanner.src = bannerImages[category];
+                    const category = this.getAttribute('data-category');
+                    mainBanner.src = bannerImages[category];
+                });
             });
-        });
+
     </script>
 </body>
 

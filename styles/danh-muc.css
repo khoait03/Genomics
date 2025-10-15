@@ -162,7 +162,7 @@
                 flex-shrink: 0;
             }
 
-            .phusa-danhmuc-card:hover,
+            
             .phusa-danhmuc-card.phusa-danhmuc-active {
                 transform: translateX(0) translateY(-10px);
             }
@@ -174,7 +174,7 @@
                 height: 160px;
             }
 
-            .phusa-danhmuc-card:hover,
+            
             .phusa-danhmuc-card.phusa-danhmuc-active {
                 width: 300px;
                 height: 180px;
@@ -187,5 +187,235 @@
             .phusa-danhmuc-main {
                 padding: 20px;
                 min-height: 400px;
+            }
+        }
+
+
+
+
+
+
+        /* Tablet landscape (chỉ áp dụng dưới 1024px) */
+        @media (max-width: 1024px) {
+            .phusa-danhmuc-card.phusa-danhmuc-active::before {
+                
+                background: transparent;
+                
+            }
+
+            .phusa-danhmuc-container {
+                flex-direction: column;
+                padding: 15px;
+                gap: 15px;
+            }
+
+            .phusa-danhmuc-sidebar {
+                flex-direction: row;
+                overflow-x: auto;
+                padding-bottom: 10px;
+                gap: 15px;
+                scrollbar-width: thin;
+                scrollbar-color: #87BADA #f0f0f0;
+            }
+
+            .phusa-danhmuc-sidebar::-webkit-scrollbar {
+                height: 8px;
+            }
+
+            .phusa-danhmuc-sidebar::-webkit-scrollbar-track {
+                background: #f0f0f0;
+                border-radius: 10px;
+            }
+
+            .phusa-danhmuc-sidebar::-webkit-scrollbar-thumb {
+                background: #87BADA;
+                border-radius: 10px;
+            }
+
+            .phusa-danhmuc-card {
+                flex-shrink: 0;
+                width: 300px;
+                height: 180px;
+            }
+
+            .phusa-danhmuc-card.phusa-danhmuc-active {
+                width: 340px;
+                height: 200px;
+            }
+
+            .phusa-danhmuc-card.phusa-danhmuc-active::before {
+                right: -10px;
+                left: -10px;
+                top: -10px;
+                bottom: -9999px;
+                height: auto;
+            }
+
+            .phusa-danhmuc-card-title {
+                font-size: 24px;
+                letter-spacing: 1.5px;
+            }
+
+            .phusa-danhmuc-main {
+                padding: 25px;
+                min-height: 500px;
+            }
+        }
+
+        /* Mobile landscape và tablet nhỏ */
+        @media (max-width: 768px) {
+            .phusa-danhmuc-card.phusa-danhmuc-active::before {
+                
+                background: transparent;
+                
+            }
+
+            .phusa-danhmuc-container {
+                padding: 10px;
+                gap: 10px;
+                border-radius: 20px;
+            }
+
+            .phusa-danhmuc-sidebar {
+                gap: 12px;
+            }
+
+            .phusa-danhmuc-card {
+                width: 260px;
+                height: 160px;
+                border-radius: 20px;
+            }
+
+            .phusa-danhmuc-card.phusa-danhmuc-active {
+                width: 280px;
+                height: 175px;
+            }
+
+            .phusa-danhmuc-card-image,
+            .phusa-danhmuc-card::before {
+                border-radius: 20px;
+            }
+
+            .phusa-danhmuc-card-title {
+                font-size: 20px;
+                letter-spacing: 1px;
+                padding: 0 15px;
+            }
+
+            .phusa-danhmuc-main {
+                padding: 15px;
+                min-height: 400px;
+                border-radius: 20px;
+            }
+
+            .phusa-danhmuc-banner {
+                max-height: 500px;
+                border-radius: 20px;
+            }
+        }
+
+        /* Mobile portrait */
+        @media (max-width: 576px) {
+            .phusa-danhmuc-card.phusa-danhmuc-active::before {
+                
+                background: transparent;
+                
+            }
+
+            .phusa-danhmuc-container {
+                padding: 8px;
+                gap: 8px;
+                border-radius: 15px;
+            }
+
+            .phusa-danhmuc-sidebar {
+                gap: 10px;
+                padding-bottom: 8px;
+            }
+
+            .phusa-danhmuc-card {
+                width: 220px;
+                height: 140px;
+                border-radius: 16px;
+            }
+
+            .phusa-danhmuc-card.phusa-danhmuc-active {
+                width: 240px;
+                height: 155px;
+            }
+
+            .phusa-danhmuc-card.phusa-danhmuc-active::before {
+                border-radius: 20px;
+            }
+
+            .phusa-danhmuc-card-image,
+            .phusa-danhmuc-card::before {
+                border-radius: 16px;
+            }
+
+            .phusa-danhmuc-card-title {
+                font-size: 16px;
+                letter-spacing: 0.8px;
+                padding: 0 10px;
+            }
+
+            .phusa-danhmuc-main {
+                padding: 12px;
+                min-height: 300px;
+                border-radius: 15px;
+            }
+
+            .phusa-danhmuc-banner {
+                max-height: 400px;
+                border-radius: 15px;
+            }
+        }
+
+        /* Mobile nhỏ */
+        @media (max-width: 400px) {
+            .phusa-danhmuc-card.phusa-danhmuc-active::before {
+                
+                background: transparent;
+                
+            }
+
+            .phusa-danhmuc-container {
+                padding: 6px;
+                gap: 6px;
+            }
+
+            .phusa-danhmuc-sidebar {
+                gap: 8px;
+            }
+
+            .phusa-danhmuc-card {
+                width: 180px;
+                height: 120px;
+                border-radius: 14px;
+            }
+
+            .phusa-danhmuc-card.phusa-danhmuc-active {
+                width: 200px;
+                height: 135px;
+            }
+
+            .phusa-danhmuc-card-image,
+            .phusa-danhmuc-card::before {
+                border-radius: 14px;
+            }
+
+            .phusa-danhmuc-card-title {
+                font-size: 14px;
+                letter-spacing: 0.5px;
+            }
+
+            .phusa-danhmuc-main {
+                padding: 10px;
+                min-height: 250px;
+            }
+
+            .phusa-danhmuc-banner {
+                max-height: 300px;
+                border-radius: 12px;
             }
         }

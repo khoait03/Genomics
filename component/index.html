@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phù Sa Genomics - Header & Hero</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/danh-muc.css">
+    <link rel="stylesheet" href="../styles/nghien-cuu.css">
+    <link rel="stylesheet" href="../styles/san-pham.css">
+
+    <link rel="stylesheet" href="../styles/footer.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="phusa-header-wrapper">
+        <header class="phusa-header-top">
+            <div class="phusa-header-content">
+                <div class="phusa-logo-header">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80'%3E%3Ctext x='10' y='50' font-family='Arial' font-weight='bold' font-size='40' fill='%23667eea'%3EPHUSA%3C/text%3E%3Ctext x='10' y='70' font-family='Arial' font-size='12' fill='%23764ba2'%3EGENOMICS%3C/text%3E%3C/svg%3E"
+                        alt="Phusa Genomics Logo">
+                </div>
+
+                <nav>
+                    <ul class="phusa-nav-menu">
+                        <li><a href="#about">VỀ CHÚNG TÔI</a></li>
+                        <li><a href="#products">SẢN PHẨM <i class="fas fa-chevron-down"></i></a></li>
+                        <li><a href="#news">TIN TỨC <i class="fas fa-chevron-down"></i></a></li>
+                        <li><a href="#opce">OPCE <i class="fas fa-chevron-down"></i></a></li>
+                    </ul>
+                </nav>
+
+                <div class="phusa-header-actions">
+                    <div class="phusa-search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Tìm kiếm...">
+                    </div>
+                    <div class="phusa-language-toggle" id="phusaLangToggle">
+                        <div class="phusa-toggle-slider">
+                            <span id="phusaSliderText">Vi</span>
+                        </div>
+                        <div class="phusa-language-options">
+                            <div class="phusa-lang-option phusa-vi">Vi</div>
+                            <div class="phusa-lang-option phusa-en">En</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Toggle Button -->
+                <div class="phusa-mobile-toggle" id="phusaMobileToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <!-- Mobile Sidebar Menu -->
+    <div class="phusa-mobile-overlay" id="phusaMobileOverlay"></div>
+    <div class="phusa-mobile-sidebar" id="phusaMobileSidebar">
+        <div class="phusa-mobile-sidebar-content">
+            <ul class="phusa-mobile-nav-menu">
+                <li><a href="#about">VỀ CHÚNG TÔI</a></li>
+                <li><a href="#products">SẢN PHẨM <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#news">TIN TỨC <i class="fas fa-chevron-right"></i></a></li>
+                <li><a href="#opce">OPCE <i class="fas fa-chevron-right"></i></a></li>
+            </ul>
+
+            <div class="phusa-mobile-actions">
+                <div class="phusa-mobile-search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Tìm kiếm...">
+                </div>
+                <div class="phusa-language-toggle" id="phusaMobileLangToggle">
+                    <div class="phusa-toggle-slider">
+                        <span id="phusaMobileSliderText">Vi</span>
+                    </div>
+                    <div class="phusa-language-options">
+                        <div class="phusa-lang-option phusa-vi">Vi</div>
+                        <div class="phusa-lang-option phusa-en">En</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Social Sidebar -->
+    <div class="phusa-social-sidebar">
+        <a href="#" class="phusa-social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="phusa-social-icon"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="phusa-social-icon"><i class="fas fa-envelope"></i></a>
+        <a href="#" class="phusa-social-icon"><i class="fas fa-phone"></i></a>
+        <a href="#" class="phusa-social-icon"><i class="fas fa-user"></i></a>
+        <a href="#" class="phusa-social-icon"><i class="fas fa-bell"></i></a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="phusa-hero-section">
+        <div class="phusa-hero-content">
+            <h1>ĐỒNG HÀNH CÙNG<br>KHOA HỌC VIỆT</h1>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat</p>
+            <div class="phusa-hero-buttons">
+                <button class="phusa-btn phusa-btn-secondary">Đăng ký</button>
+                <button class="phusa-btn phusa-btn-primary">Liên hệ</button>
+            </div>
+        </div>
+        <div class="phusa-scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+
+    <!-- Danh mục -->
+    <div class="phusa-danhmuc-container">
+        <div class="phusa-danhmuc-sidebar">
+            <div class="phusa-danhmuc-card phusa-danhmuc-active" data-category="giao-duc">
+                <img src="../images/giao-duc.png" alt="Giáo dục" class="phusa-danhmuc-card-image">
+                <div class="phusa-danhmuc-card-title">GIÁO DỤC</div>
+            </div>
+
+            <div class="phusa-danhmuc-card" data-category="nghien-cuu">
+                <img src="../images/nghien-cuu.png" alt="Nghiên cứu" class="phusa-danhmuc-card-image">
+                <div class="phusa-danhmuc-card-title">NGHIÊN CỨU</div>
+            </div>
+
+            <div class="phusa-danhmuc-card" data-category="dich-vu">
+                <img src="../images/dich-vu.png" alt="Dịch vụ" class="phusa-danhmuc-card-image">
+                <div class="phusa-danhmuc-card-title">DỊCH VỤ</div>
+            </div>
+
+            <div class="phusa-danhmuc-card" data-category="nong-nghiep">
+                <img src="../images/nong-nghiep.png" alt="Nông nghiệp" class="phusa-danhmuc-card-image">
+                <div class="phusa-danhmuc-card-title">NÔNG NGHIỆP</div>
+            </div>
+        </div>
+
+        <div class="phusa-danhmuc-main">
+            <div class="phusa-danhmuc-banner">
+                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1400&h=800&fit=crop"
+                    alt="Banner chính" class="phusa-danhmuc-banner-image" id="mainBanner">
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--  Nghiên cứu -->
+    <div class="phusa-nghien-cuu-container">
+        <div class="phusa-nghien-cuu-background">
+            <h1 class="phusa-nghien-cuu-title">Nghiên Cứu Nổi Bật</h1>
+
+            <div class="phusa-nghien-cuu-grid">
+
+                <!-- Card 1: Spotcheck -->
+                <div class="phusa-nghien-cuu-card">
+                    <div class="phusa-nghien-cuu-card-inner">
+                        <img src="../images/Spotcheck & bệnh học tôm.png" alt="Spotcheck & bệnh học tôm"
+                            class="phusa-nghien-cuu-card-image">
+                        <div class="phusa-nghien-cuu-card-overlay">
+                            <div class="phusa-nghien-cuu-card-header">
+                                <h2 class="phusa-nghien-cuu-card-title">Spotcheck &<br>bệnh học tôm</h2>
+                                <p class="phusa-nghien-cuu-card-description">
+                                    Spotcheck và Bệnh học tôm là hai khái niệm bổ sung cho nhau trong nuôi tôm.
+                                    Spotcheck (Kiểm
+                                    tra nhanh) là hành động theo dõi sức khỏe tôm hoặc mẫu nước định kỳ hàng ngày.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#spotcheck" class="phusa-nghien-cuu-card-link">
+                        <span>Xem thêm</span>
+                        <div class="phusa-nghien-cuu-card-arrow">→</div>
+                    </a>
+                </div>
+
+                <!-- Card 2: Long Oligo & NGS -->
+                <div class="phusa-nghien-cuu-card">
+                    <div class="phusa-nghien-cuu-card-inner">
+                        <img src="../images/Long Oligo & NGS Sequencing.png" alt="Long Oligo & NGS Sequencing"
+                            class="phusa-nghien-cuu-card-image">
+                        <div class="phusa-nghien-cuu-card-overlay">
+                            <div class="phusa-nghien-cuu-card-header">
+                                <h2 class="phusa-nghien-cuu-card-title">Long Oligo &<br>NGS Sequencing</h2>
+                                <p class="phusa-nghien-cuu-card-description">
+                                    NGS (Next-Generation Sequencing - Giải trình tự thế hệ tiếp theo) là một công nghệ
+                                    tiên
+                                    tiến
+                                    cho phép giải trình tự đồng thời hàng triệu đoạn DNA/RNA, giúp phân tích dữ liệu di
+                                    truyền.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#long-oligo" class="phusa-nghien-cuu-card-link">
+                        <span>Xem thêm</span>
+                        <div class="phusa-nghien-cuu-card-arrow">→</div>
+                    </a>
+                </div>
+
+                <!-- Card 3: Magic Mix 2x -->
+                <div class="phusa-nghien-cuu-card">
+                    <div class="phusa-nghien-cuu-card-inner">
+                        <img src="../images/Magic mix 2x.png" alt="Magic mix 2x" class="phusa-nghien-cuu-card-image">
+                        <div class="phusa-nghien-cuu-card-overlay">
+                            <div class="phusa-nghien-cuu-card-header">
+                                <h2 class="phusa-nghien-cuu-card-title">Magic mix 2x NGS Sequencing</h2>
+                                <p class="phusa-nghien-cuu-card-description">
+                                    Magic Mix PCR 2x là hỗn hợp dụng dịch có nồng độ 2X của Taq DNA Polymerase, dNTPs và
+                                    các
+                                    thành phần cần thiết để thực hiện PCR ngoại trừ khuôn DNA và mồi.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#magic-mix" class="phusa-nghien-cuu-card-link">
+                        <span>Xem thêm</span>
+                        <div class="phusa-nghien-cuu-card-arrow">→</div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Sản phẩm -->
+    <div class="phusa-san-pham-container-bg">
+
+
+        <h1 class="phusa-san-pham-title-main">Sản phẩm</h1>
+
+        <div class="phusa-san-pham-container">
+
+            <!-- Main Product Card -->
+            <div class="phusa-san-pham-card phusa-san-pham-main">
+                <div class="phusa-san-pham-content">
+                    <h1 class="phusa-san-pham-title">Sphotcheck Platforms</h1>
+                    <p class="phusa-san-pham-subtitle">Now with new improved system</p>
+                    <a class="phusa-san-pham-link">Chi tiết</a>
+                </div>
+                <div class="phusa-san-pham-image-wrapper">
+                    <img class="phusa-san-pham-image-main" src="../images/anh1.png" alt="Sphotcheck Platform"
+                        class="phusa-san-pham-image">
+                </div>
+            </div>
+
+            <!-- Secondary Card 1 - Portable Device -->
+            <div class="phusa-san-pham-card phusa-san-pham-secondary phusa-san-pham-device">
+                <div class="phusa-san-pham-content">
+                    <h2 class="phusa-san-pham-title">New 3 in 1 Protable Devce</h2>
+                    <p class="phusa-san-pham-subtitle">A next-generation portal system delivering speed...</p>
+                    <a class="phusa-san-pham-link">Chi tiết</a>
+                </div>
+                <div class="phusa-san-pham-image-wrapper">
+                    <img src="../images/anh2.png" alt="3 in 1 Portable Device" class="phusa-san-pham-image">
+                </div>
+            </div>
+
+            <!-- Secondary Card 2 - Fish Research -->
+            <div class="phusa-san-pham-card phusa-san-pham-secondary">
+                <div class="phusa-san-pham-content">
+                    <h2 class="phusa-san-pham-title">African fish disease research</h2>
+                    <p class="phusa-san-pham-subtitle">Fish Pathoagen Research Across Africa...</p>
+                    <a class="phusa-san-pham-link">Chi tiết</a>
+                </div>
+                <div class="phusa-san-pham-image-wrapper">
+                    <img style="width: 200px;" src="../images/anh2.png" alt="African Fish Disease Research"
+                        class="phusa-san-pham-image">
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- Footer -->
+    <img src="../images/img-footer.png" alt="footer" class="footer-img">
+
+    <style>
+        .footer-img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+    <footer class="phusa-footer-wrapper">
+        <!-- Contact Section -->
+        <div class="phusa-contact-section">
+            <h2 class="phusa-contact-title">LIÊN HỆ VỚI CHÚNG TÔI</h2>
+
+            <div class="phusa-contact-grid">
+                <!-- Địa chỉ -->
+                <div class="phusa-contact-item">
+                    <div class="phusa-contact-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                            <circle cx="12" cy="9" r="2.5" />
+                        </svg>
+                    </div>
+                    <div class="phusa-contact-label">Địa chỉ</div>
+                    <div class="phusa-contact-text">
+                        K1.15-16, Võ Nguyên Giáp,<br>
+                        phường Phú Thủy, quận Cái<br>
+                        Răng, TP. Cần Thơ.
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="phusa-contact-item">
+                    <div class="phusa-contact-icon">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="5" width="18" height="14" rx="2" />
+                            <path d="M3 7l9 6 9-6" />
+                        </svg>
+                    </div>
+                    <div class="phusa-contact-label">Email</div>
+                    <div class="phusa-contact-text">
+                        cskh@phuagenomics.com
+                    </div>
+                </div>
+
+                <!-- Hotline -->
+                <div class="phusa-contact-item">
+                    <div class="phusa-contact-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
+                        </svg>
+                    </div>
+                    <div class="phusa-contact-label">Hotlinel</div>
+                    <div class="phusa-contact-text">
+                        0292651568
+                    </div>
+                </div>
+
+                <!-- Giờ làm việc -->
+                <div class="phusa-contact-item">
+                    <div class="phusa-contact-icon">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 6v6l4 2" />
+                        </svg>
+                    </div>
+                    <div class="phusa-contact-label">Giờ làm việc</div>
+                    <div class="phusa-contact-text">
+                        Thứ Hai - Thứ Sáu<br>
+                        7:00 sáng - 5:00 chiều
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Newsletter Section -->
+        <div class="phusa-newsletter-section">
+            <div class="phusa-newsletter-container">
+                <div class="phusa-newsletter-icon">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="5" width="18" height="14" rx="2" />
+                        <path d="M3 7l9 6 9-6" />
+                    </svg>
+                </div>
+                <div class="phusa-newsletter-text">
+                    Đăng ký để nhận những thông tin khuyến mãi, chiết khấu hấp dẫn
+                    <!-- <form class="phusa-newsletter-form">
+                            <input type="email" class="phusa-newsletter-input" placeholder="Nhập email của bạn">
+                            <button type="submit" class="phusa-newsletter-button">Xác nhận</button>
+                        </form> -->
+                    <div class="input-container">
+                        <input type="text" placeholder="" />
+                        <button>Xác nhận</button>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer Main -->
+        <div class="phusa-footer-main">
+            <div class="phusa-footer-content">
+                <!-- Đặt Hàng -->
+                <div class="phusa-footer-column">
+                    <h3>Đặt Hàng</h3>
+                    <ul class="phusa-footer-links">
+                        <li><a href="#">Thông tin đơn hàng</a></li>
+                        <li><a href="#">Hỗ trợ đơn hàng</a></li>
+                        <li><a href="#">Đặt hàng nhanh</a></li>
+                        <li><a href="#">Lưu trữ đơn hàng</a></li>
+                        <li><a href="#">Quy tích lũy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Hỗ Trợ -->
+                <div class="phusa-footer-column">
+                    <h3>Hỗ Trợ</h3>
+                    <ul class="phusa-footer-links">
+                        <li><a href="#">Trung tâm hỗ trợ</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Hỗ trợ kỹ thuật</a></li>
+                        <li><a href="#">Mẫu biểu văn bản</a></li>
+                        <li><a href="#">Báo cáo văn đề website</a></li>
+                    </ul>
+                </div>
+
+                <!-- Tài Nguyên -->
+                <div class="phusa-footer-column">
+                    <h3>Tài Nguyên</h3>
+                    <ul class="phusa-footer-links">
+                        <li><a href="#">Trung tâm học thuật</a></li>
+                        <li><a href="#">Dao tao PCR</a></li>
+                        <li><a href="#">Thông tin khuyến mãi</a></li>
+                        <li><a href="#">Sự kiện</a></li>
+                        <li><a href="#">Socialmedia</a></li>
+                    </ul>
+                </div>
+
+                <!-- Về Phù Sa Group -->
+                <div class="phusa-footer-column">
+                    <h3>Về Phù Sa Group</h3>
+                    <ul class="phusa-footer-links">
+                        <li><a href="#">Về chúng tôi</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#">Hợp tác</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Chứng nhận</a></li>
+                    </ul>
+                </div>
+
+                <!-- Danh mục -->
+                <div class="phusa-footer-column">
+                    <h3>Danh mục</h3>
+                    <ul class="phusa-footer-links">
+                        <li><a href="#">Công nghệ Phù Sa</a></li>
+                        <li><a href="#">Hệ thống tự động hóa</a></li>
+                        <li><a href="#">Sinh phẩm</a></li>
+                        <li><a href="#">Dịch vụ</a></li>
+                        <li><a href="#">OPCen</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="phusa-footer-bottom">
+            <p class="phusa-copyright">© 2025 Bản Quyền Thuộc Về Công Ty Cổ Phần Phù Sa Genomics</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="phusa-scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <svg viewBox="0 0 24 24">
+            <path d="M18 15l-6-6-6 6" />
+        </svg>
+    </div>
+
+    <script src="../script/header.js"></script>
+    <script src="../script/danh-muc.js"></script>
+</body>
+
+</html>

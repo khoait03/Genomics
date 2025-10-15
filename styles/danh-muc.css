@@ -1,0 +1,191 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        
+        .phusa-danhmuc-container {
+            /* max-width: 1600px; */
+            max-width: 1920px;
+            margin: 0 auto;
+            display: flex;
+            gap: 20px;
+            /* background-color: white; */
+            z-index: -5;
+            border-radius: 30px;
+            padding: 20px;
+        }
+
+        .phusa-danhmuc-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex-shrink: 0;
+            align-items: center;
+        }
+
+        .phusa-danhmuc-card {
+            width: 342px;
+            height: 200px;
+            border-radius: 24px;
+            overflow: visible;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .phusa-danhmuc-card-wrapper {
+            width: 100%;
+            height: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* .phusa-danhmuc-card:hover, */
+        .phusa-danhmuc-card.phusa-danhmuc-active {
+            width: 394px;
+            height: 230px;
+            /* box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); */
+            /* transform: translateX(10px); */
+        }
+
+        .phusa-danhmuc-card.phusa-danhmuc-active::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -9999px;
+            bottom: -20px;
+            padding: 10px 0;
+            /* background: linear-gradient(135deg, #87BADA 0%, #A8D5E8 100%); */
+            background: url(../images/back-blue.png) no-repeat;
+            /* border-radius: 32px 0 0 32px; */
+            border-radius: 30px;
+            z-index: -1;
+            /* overflow: hidden; */
+            height: 500px;
+        }
+
+        .phusa-danhmuc-card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+            transition: filter 0.3s ease;
+            border-radius: 30px;
+        }
+
+        .phusa-danhmuc-card:hover .phusa-danhmuc-card-image,
+        .phusa-danhmuc-card.phusa-danhmuc-active .phusa-danhmuc-card-image {
+            filter: brightness(0.6);
+        }
+
+        .phusa-danhmuc-card-title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            white-space: nowrap;
+            z-index: 3;
+            text-align: center;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .phusa-danhmuc-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(79, 91, 114, 0.5) 0%, rgba(42, 57, 82, 0.7) 100%);
+            z-index: 1;
+            border-radius: 30px;
+        }
+
+        .phusa-danhmuc-main {
+            flex: 1;
+            /* background: white; */
+            border-radius: 24px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 776px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .phusa-danhmuc-banner {
+            width: 100%;
+            max-width: 1327px;
+            height: 100%;
+            max-height: 776px;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .phusa-danhmuc-banner-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 1400px) {
+            .phusa-danhmuc-container {
+                flex-direction: column;
+            }
+
+            .phusa-danhmuc-sidebar {
+                flex-direction: row;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+
+            .phusa-danhmuc-card {
+                flex-shrink: 0;
+            }
+
+            .phusa-danhmuc-card:hover,
+            .phusa-danhmuc-card.phusa-danhmuc-active {
+                transform: translateX(0) translateY(-10px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .phusa-danhmuc-card {
+                width: 280px;
+                height: 160px;
+            }
+
+            .phusa-danhmuc-card:hover,
+            .phusa-danhmuc-card.phusa-danhmuc-active {
+                width: 300px;
+                height: 180px;
+            }
+
+            .phusa-danhmuc-card-title {
+                font-size: 20px;
+            }
+
+            .phusa-danhmuc-main {
+                padding: 20px;
+                min-height: 400px;
+            }
+        }

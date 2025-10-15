@@ -4,230 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/nghien-cuu.css">
     <title>Nghiên Cứu Nội Bật</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #d4e6f1 0%, #e8eaf6 50%, #f3e5f5 100%);
-            padding: 0;
-            min-height: 100vh;
-        }
-
-        .phusa-nghien-cuu-container {
-            margin: 0 auto;
-
-            padding: 60px 20px;
-            /* min-height: 100vh; */
-        }
-
-        .phusa-nghien-cuu-back-ground {
-            background: url('../images/bacground-nghien-cuu.png') no-repeat center center;
-            background-size: cover;
-            border-radius: 20px;
-        }
-
-
-        .phusa-nghien-cuu-title {
-            text-align: center;
-            font-size: 52px;
-            font-weight: 800;
-            color: #3d4c7a;
-            margin-bottom: 70px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        .phusa-nghien-cuu-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 35px;
-            padding: 0 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .phusa-nghien-cuu-card {
-            position: relative;
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            cursor: pointer;
-            height: 460px;
-        }
-
-        .phusa-nghien-cuu-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .phusa-nghien-cuu-card-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .phusa-nghien-cuu-card-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom,
-                    rgba(0, 0, 0, 0.15) 0%,
-                    rgba(0, 0, 0, 0.35) 50%,
-                    rgba(0, 0, 0, 0.65) 100%);
-            padding: 35px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .phusa-nghien-cuu-card-header {
-            color: white;
-        }
-
-        .phusa-nghien-cuu-card-title {
-            font-size: 34px;
-            font-weight: 700;
-            margin-bottom: 18px;
-            line-height: 1.3;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-        }
-
-        .phusa-nghien-cuu-card-description {
-            font-size: 14.5px;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.95);
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-        }
-
-        .phusa-nghien-cuu-card--center {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .phusa-nghien-cuu-button-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .phusa-nghien-cuu-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 20px;
-            background-color: #3d4c7a;
-            color: white;
-            padding: 16px 45px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 19px;
-            font-weight: 600;
-            width: 485px;
-            height: 105px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(61, 76, 122, 0.35);
-        }
-
-        .phusa-nghien-cuu-button:hover {
-            background-color: #2a3556;
-            transform: translateX(5px);
-            box-shadow: 0 6px 20px rgba(61, 76, 122, 0.5);
-        }
-
-        .phusa-nghien-cuu-button-icon {
-            width: 32px;
-            height: 32px;
-            background-color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #3d4c7a;
-            font-size: 22px;
-            font-weight: bold;
-        }
-
-        @media (max-width: 1200px) {
-            .phusa-nghien-cuu-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .phusa-nghien-cuu-card:last-child {
-                grid-column: 1 / -1;
-                max-width: 600px;
-                margin: 0 auto;
-                width: 100%;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .phusa-nghien-cuu-container {
-                padding: 40px 15px;
-            }
-
-            .phusa-nghien-cuu-title {
-                font-size: 36px;
-                margin-bottom: 40px;
-                letter-spacing: 2px;
-            }
-
-            .phusa-nghien-cuu-grid {
-                grid-template-columns: 1fr;
-                gap: 25px;
-                padding: 0 10px;
-            }
-
-            .phusa-nghien-cuu-card {
-                height: 420px;
-            }
-
-            .phusa-nghien-cuu-card:last-child {
-                grid-column: 1;
-                max-width: 100%;
-            }
-
-            .phusa-nghien-cuu-card-title {
-                font-size: 28px;
-            }
-
-            .phusa-nghien-cuu-card-description {
-                font-size: 13.5px;
-            }
-
-            .phusa-nghien-cuu-card-overlay {
-                padding: 28px;
-            }
-
-            .phusa-nghien-cuu-button {
-                padding: 14px 35px;
-                font-size: 17px;
-                gap: 15px;
-            }
-
-            .phusa-nghien-cuu-button-icon {
-                width: 28px;
-                height: 28px;
-                font-size: 20px;
-            }
-        }
-    </style>
+   
 </head>
 
 <body>
     <div class="phusa-nghien-cuu-container">
-        <div class="phusa-nghien-cuu-back-ground">
+        <div class="phusa-nghien-cuu-background">
             <h1 class="phusa-nghien-cuu-title">Nghiên Cứu Nổi Bật</h1>
-
+            
             <div class="phusa-nghien-cuu-grid">
+            
                 <!-- Card 1: Spotcheck -->
                 <div class="phusa-nghien-cuu-card">
                     <img src="../images/Spotcheck & bệnh học tôm.png" alt="Spotcheck & bệnh học tôm"
@@ -236,88 +25,42 @@
                         <div class="phusa-nghien-cuu-card-header">
                             <h2 class="phusa-nghien-cuu-card-title">Spotcheck &<br>bệnh học tôm</h2>
                             <p class="phusa-nghien-cuu-card-description">
-                                Spotcheck và Bệnh học tôm là hai khái niệm bổ sung cho nhau trong nuôi tôm. Spotcheck
-                                (Kiểm
+                                Spotcheck và Bệnh học tôm là hai khái niệm bổ sung cho nhau trong nuôi tôm. Spotcheck (Kiểm
                                 tra nhanh) là hành động theo dõi sức khỏe tôm hoặc mẫu nước định kỳ hàng ngày.
                             </p>
                         </div>
                     </div>
                 </div>
-
+            
                 <!-- Card 2: Long Oligo & NGS -->
-                <div class="phusa-nghien-cuu-card phusa-nghien-cuu-card--center">
-                    <img src="../images/Long Oligo & NGS Sequencing.png" alt="Long Oligo & NGS Sequencing"
-                        class="phusa-nghien-cuu-card-image">
-                    <div class="phusa-nghien-cuu-card-overlay">
-                        <div class="phusa-nghien-cuu-card-header">
-                            <h2 class="phusa-nghien-cuu-card-title">Long Oligo &<br>NGS Sequencing</h2>
-                            <p class="phusa-nghien-cuu-card-description">
-                                NGS (Next-Generation Sequencing - Giải trình tự thế hệ tiếp theo) là một công nghệ tiên
-                                tiến
-                                cho phép giải trình tự đồng thời hàng triệu đoạn DNA/RNA, giúp phân tích dữ liệu di
-                                truyền.
-                            </p>
+                <div  class="phusa-nghien-cuu-card-wrapper">
+                    <div class="phusa-nghien-cuu-card phusa-nghien-cuu-card--center">
+                        <img src="../images/Long Oligo & NGS Sequencing.png" alt="Long Oligo & NGS Sequencing"
+                            class="phusa-nghien-cuu-card-image">
+                        <div class="phusa-nghien-cuu-card-overlay">
+                            <div class="phusa-nghien-cuu-card-header">
+                                <h2 class="phusa-nghien-cuu-card-title">Long Oligo &<br>NGS Sequencing</h2>
+                                <p class="phusa-nghien-cuu-card-description">
+                                    NGS (Next-Generation Sequencing - Giải trình tự thế hệ tiếp theo) là một công nghệ tiên
+                                    tiến
+                                    cho phép giải trình tự đồng thời hàng triệu đoạn DNA/RNA, giúp phân tích dữ liệu di
+                                    truyền.
+                                </p>
+                            </div>
                         </div>
-                        <!-- <div class="phusa-nghien-cuu-button-wrapper">
-                            <a href="#" class="phusa-nghien-cuu-button">
-                                Xem thêm
-                                <span class="phusa-nghien-cuu-button-icon">→</span>
-                            </a>
-                        </div> -->
-                        <a href="#" class="phusa-nghien-cuu-button">
-                            Xem thêm
-                            <span class="phusa-nghien-cuu-button-icon">→</span>
-                        </a>
-
-                        <style>
-                            /* CSS */
-                            .phusa-nghien-cuu-button {
-                                display: inline-flex;
-                                align-items: center;
-                                justify-content: space-between;
-                                gap: 20px;
-                                background-color: #0a1f44;
-                                color: white;
-                                padding: 0 8px 0 40px;
-                                border-radius: 60px;
-                                text-decoration: none;
-                                font-size: 19px;
-                                font-weight: 600;
-                                transition: all 0.3s ease;
-                                box-shadow: 0 4px 15px rgba(10, 31, 68, 0.35);
-                                width: 486px;
-                                height: 105px;
-                            }
-
-                            .phusa-nghien-cuu-button:hover {
-                                background-color: #051633;
-                                transform: translateX(5px);
-                                box-shadow: 0 6px 20px rgba(10, 31, 68, 0.5);
-                            }
-
-                            .phusa-nghien-cuu-button-icon {
-                                width: 90px;
-                                height: 90px;
-                                background-color: white;
-                                border-radius: 50%;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                color: #0a1f44;
-                                font-size: 40px;
-                                font-weight: bold;
-                                flex-shrink: 0;
-                            }
-                        </style>
                     </div>
+                    <a href="#" class="phusa-nghien-cuu-button">
+                        Xem thêm
+                        <span class="phusa-nghien-cuu-button-icon">→</span>
+                    </a>
                 </div>
-
+            
                 <!-- Card 3: Magic Mix 2x -->
                 <div class="phusa-nghien-cuu-card">
                     <img src="../images/Magic mix 2x.png" alt="Magic mix 2x" class="phusa-nghien-cuu-card-image">
                     <div class="phusa-nghien-cuu-card-overlay">
                         <div class="phusa-nghien-cuu-card-header">
-                            <h2 class="phusa-nghien-cuu-card-title">Magic mix 2x</h2>
+                            <h2 class="phusa-nghien-cuu-card-title">Magic mix 2x NGS Sequencing</h2>
                             <p class="phusa-nghien-cuu-card-description">
                                 Magic Mix PCR 2x là hỗn hợp dụng dịch có nồng độ 2X của Taq DNA Polymerase, dNTPs và các
                                 thành phần cần thiết để thực hiện PCR ngoại trừ khuôn DNA và mồi.
@@ -325,8 +68,10 @@
                         </div>
                     </div>
                 </div>
+            
             </div>
         </div>
+        
 
     </div>
 </body>

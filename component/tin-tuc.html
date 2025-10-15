@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin Tức - Phusa Biochem</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a2238 0%, #2d3557 50%, #4a5578 100%);
+            min-height: 100vh;
+            padding: 40px 0;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(74, 85, 120, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(42, 51, 79, 0.3) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .phusa-tin-tuc-section {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .phusa-tin-tuc-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .phusa-tin-tuc-title {
+            color: white;
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .phusa-tin-tuc-carousel-wrapper {
+            position: relative;
+            padding: 0 80px 100px;
+        }
+
+        .phusa-tin-tuc-carousel-track {
+            overflow: visible;
+            position: relative;
+        }
+
+        .phusa-tin-tuc-carousel-container {
+            display: flex;
+            gap: 30px;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 20px 0;
+        }
+
+        .phusa-tin-tuc-slide {
+            min-width: 511px;
+            flex-shrink: 0;
+            background: white;
+            border-radius: 35px;
+            overflow: visible;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            height: 837px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .phusa-tin-tuc-slide:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
+        }
+
+        .phusa-tin-tuc-image-wrapper {
+            width: 100%;
+            height: 675px;
+            overflow: hidden;
+            border-radius: 35px 35px 0 0;
+            position: relative;
+        }
+
+        .phusa-tin-tuc-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .phusa-tin-tuc-slide:hover .phusa-tin-tuc-image {
+            transform: scale(1.08);
+        }
+
+        .phusa-tin-tuc-content {
+            padding: 30px 35px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .phusa-tin-tuc-description {
+            color: white;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .phusa-tin-tuc-link {
+            color: #ef4444;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .phusa-tin-tuc-link:hover {
+            color: #dc2626;
+            transform: translateX(5px);
+        }
+
+        /* Overlay background for content */
+        .phusa-tin-tuc-slide::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 162px;
+            background: linear-gradient(to top, rgba(45, 53, 87, 0.95), rgba(45, 53, 87, 0.85));
+            border-radius: 0 0 35px 35px;
+            z-index: 0;
+        }
+
+        .phusa-tin-tuc-content>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Icon Button */
+        .phusa-tin-tuc-icon-btn {
+            position: absolute;
+            bottom: 30px;
+            left: 35px;
+            width: 50px;
+            height: 50px;
+            background: white;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .phusa-tin-tuc-icon-btn:hover {
+            transform: scale(1.1) rotate(45deg);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .phusa-tin-tuc-icon-btn svg {
+            width: 20px;
+            height: 20px;
+            stroke: #2d3557;
+            stroke-width: 2.5;
+        }
+
+        /* Category Label */
+        .phusa-tin-tuc-category-label {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 40px;
+            padding: 18px 45px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: white;
+            z-index: 2;
+            white-space: nowrap;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Navigation Arrows */
+        .phusa-tin-tuc-nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: #2d3557;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .phusa-tin-tuc-nav-arrow:hover {
+            transform: translateY(-50%) scale(1.15);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .phusa-tin-tuc-nav-arrow:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .phusa-tin-tuc-nav-arrow.prev {
+            left: 0;
+        }
+
+        .phusa-tin-tuc-nav-arrow.next {
+            right: 0;
+        }
+
+        /* Dots */
+        .phusa-tin-tuc-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 40px;
+        }
+
+        .phusa-tin-tuc-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .phusa-tin-tuc-dot.active {
+            background: white;
+            width: 10px;
+            height: 10px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 1400px) {
+            .phusa-tin-tuc-slide {
+                min-width: 450px;
+                height: 737px;
+            }
+
+            .phusa-tin-tuc-image-wrapper {
+                height: 575px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .phusa-tin-tuc-carousel-wrapper {
+                padding: 0 60px 80px;
+            }
+
+            .phusa-tin-tuc-slide {
+                min-width: 400px;
+                height: 687px;
+            }
+
+            .phusa-tin-tuc-image-wrapper {
+                height: 525px;
+            }
+
+            .phusa-tin-tuc-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .phusa-tin-tuc-section {
+                padding: 0 20px;
+            }
+
+            .phusa-tin-tuc-carousel-wrapper {
+                padding: 0 50px 60px;
+            }
+
+            .phusa-tin-tuc-slide {
+                min-width: calc(100vw - 140px);
+                height: 600px;
+            }
+
+            .phusa-tin-tuc-image-wrapper {
+                height: 450px;
+            }
+
+            .phusa-tin-tuc-title {
+                font-size: 2rem;
+            }
+
+            .phusa-tin-tuc-nav-arrow {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            .phusa-tin-tuc-category-label {
+                font-size: 0.95rem;
+                padding: 14px 35px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 0;
+            }
+
+            .phusa-tin-tuc-title {
+                font-size: 1.5rem;
+                letter-spacing: 1px;
+            }
+
+            .phusa-tin-tuc-header {
+                margin-bottom: 30px;
+            }
+
+            .phusa-tin-tuc-carousel-wrapper {
+                padding: 0 40px 50px;
+            }
+
+            .phusa-tin-tuc-slide {
+                min-width: calc(100vw - 100px);
+                height: 550px;
+            }
+
+            .phusa-tin-tuc-image-wrapper {
+                height: 400px;
+            }
+
+            .phusa-tin-tuc-content {
+                padding: 20px 25px;
+            }
+
+            .phusa-tin-tuc-description {
+                font-size: 0.85rem;
+            }
+
+            .phusa-tin-tuc-nav-arrow {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+
+            .phusa-tin-tuc-category-label {
+                font-size: 0.85rem;
+                padding: 12px 25px;
+            }
+
+            .phusa-tin-tuc-icon-btn {
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="phusa-tin-tuc-section">
+        <div class="phusa-tin-tuc-header">
+            <h2 class="phusa-tin-tuc-title">TIN TÚC</h2>
+        </div>
+
+        <div class="phusa-tin-tuc-carousel-wrapper">
+            <button class="phusa-tin-tuc-nav-arrow prev" id="prevBtn">‹</button>
+
+            <div class="phusa-tin-tuc-carousel-track">
+                <div class="phusa-tin-tuc-carousel-container" id="carousel">
+                    <!-- Slide 1 -->
+                    <div class="phusa-tin-tuc-slide">
+                        <div class="phusa-tin-tuc-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=1200&fit=crop"
+                                alt="Hoạt động cộng đồng" class="phusa-tin-tuc-image">
+                        </div>
+                        <button class="phusa-tin-tuc-icon-btn">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <div class="phusa-tin-tuc-category-label">Hoạt động cộng đồng</div>
+                        <div class="phusa-tin-tuc-content">
+                            <p class="phusa-tin-tuc-description">
+                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+                                tincidunt ut laoreet dolore magna aliquam erat volutpat. laoreet dolore magna aliquam
+                                erat volutpat. Ut wisi...
+                            </p>
+                            <a href="#" class="phusa-tin-tuc-link">Xem thêm</a>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="phusa-tin-tuc-slide">
+                        <div class="phusa-tin-tuc-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&h=1200&fit=crop"
+                                alt="Hội thảo khoa học" class="phusa-tin-tuc-image">
+                        </div>
+                        <button class="phusa-tin-tuc-icon-btn">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <div class="phusa-tin-tuc-category-label">Hoạt động cộng đồng</div>
+                        <div class="phusa-tin-tuc-content">
+                            <p class="phusa-tin-tuc-description">
+                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+                                tincidunt ut laoreet dolore magna aliquam erat volutpat. laoreet dolore magna aliquam
+                                erat volutpat. Ut wisi...
+                            </p>
+                            <a href="#" class="phusa-tin-tuc-link">Xem thêm</a>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="phusa-tin-tuc-slide">
+                        <div class="phusa-tin-tuc-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&h=1200&fit=crop"
+                                alt="Tin tức mới" class="phusa-tin-tuc-image">
+                        </div>
+                        <button class="phusa-tin-tuc-icon-btn">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <div class="phusa-tin-tuc-category-label">Tin tức mới</div>
+                        <div class="phusa-tin-tuc-content">
+                            <p class="phusa-tin-tuc-description">
+                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+                                tincidunt ut laoreet dolore magna aliquam erat volutpat. laoreet dolore magna aliquam
+                                erat volutpat. Ut wisi...
+                            </p>
+                            <a href="#" class="phusa-tin-tuc-link">Xem thêm</a>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="phusa-tin-tuc-slide">
+                        <div class="phusa-tin-tuc-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&h=1200&fit=crop"
+                                alt="Sự kiện" class="phusa-tin-tuc-image">
+                        </div>
+                        <button class="phusa-tin-tuc-icon-btn">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <div class="phusa-tin-tuc-category-label">Hoạt động cộng đồng</div>
+                        <div class="phusa-tin-tuc-content">
+                            <p class="phusa-tin-tuc-description">
+                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+                                tincidunt ut laoreet dolore magna aliquam erat volutpat. laoreet dolore magna aliquam
+                                erat volutpat. Ut wisi...
+                            </p>
+                            <a href="#" class="phusa-tin-tuc-link">Xem thêm</a>
+                        </div>
+                    </div>
+
+                    <!-- Slide 5 -->
+                    <div class="phusa-tin-tuc-slide">
+                        <div class="phusa-tin-tuc-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=1200&fit=crop"
+                                alt="Hội nghị" class="phusa-tin-tuc-image">
+                        </div>
+                        <button class="phusa-tin-tuc-icon-btn">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <div class="phusa-tin-tuc-category-label">Tin tức mới</div>
+                        <div class="phusa-tin-tuc-content">
+                            <p class="phusa-tin-tuc-description">
+                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+                                tincidunt ut laoreet dolore magna aliquam erat volutpat. laoreet dolore magna aliquam
+                                erat volutpat. Ut wisi...
+                            </p>
+                            <a href="#" class="phusa-tin-tuc-link">Xem thêm</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="phusa-tin-tuc-nav-arrow next" id="nextBtn">›</button>
+
+            <div class="phusa-tin-tuc-dots" id="dots"></div>
+        </div>
+    </div>
+
+    <script>
+        const carousel = document.getElementById('carousel');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const dotsContainer = document.getElementById('dots');
+        const slides = document.querySelectorAll('.phusa-tin-tuc-slide');
+
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+
+        // Create dots
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'phusa-tin-tuc-dot';
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+
+        function updateCarousel() {
+            const slideWidth = slides[0].offsetWidth;
+            const gap = 30;
+            const offset = -(currentIndex * (slideWidth + gap));
+            carousel.style.transform = `translateX(${offset}px)`;
+
+            // Update dots
+            document.querySelectorAll('.phusa-tin-tuc-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function goToSlide(index) {
+            currentIndex = Math.max(0, Math.min(index, totalSlides - 1));
+            updateCarousel();
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < totalSlides - 1) {
+                currentIndex++;
+                updateCarousel();
+            }
+        });
+
+        // Auto slide
+        let autoSlide = setInterval(() => {
+            if (currentIndex < totalSlides - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            updateCarousel();
+        }, 5000);
+
+        // Pause auto slide on hover
+        carousel.addEventListener('mouseenter', () => clearInterval(autoSlide));
+        carousel.addEventListener('mouseleave', () => {
+            autoSlide = setInterval(() => {
+                if (currentIndex < totalSlides - 1) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0;
+                }
+                updateCarousel();
+            }, 5000);
+        });
+
+        // Handle resize
+        window.addEventListener('resize', () => {
+            updateCarousel();
+        });
+
+        // Icon button click handlers
+        document.querySelectorAll('.phusa-tin-tuc-icon-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                // Add your action here
+            });
+        });
+    </script>
+</body>
+
+</html>

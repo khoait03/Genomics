@@ -214,8 +214,10 @@
 
         /* Hero Section */
         .phusa-hero-section {
-            background: linear-gradient(rgba(0, 30, 80, 0.7), rgba(0, 30, 80, 0.7)),
-                url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1920');
+            /* background: linear-gradient(rgba(0, 30, 80, 0.7), rgba(0, 30, 80, 0.7)),
+                url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1920'); */
+                background: 
+                url('../images/background-main.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;

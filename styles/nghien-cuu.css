@@ -1,0 +1,217 @@
+.phusa-nghien-cuu-container {
+     margin: 0 auto;
+     /* background: url('../images/bacground-nghien-cuu.png') no-repeat center center;
+            background-size: cover; */
+     padding: 60px 20px;
+     min-height: 100vh;
+}
+
+.phusa-nghien-cuu-background {
+     background: url('../images/bacground-nghien-cuu.png') no-repeat center center;
+     background-size: cover;
+     padding: 80px 0;
+     border-radius: 20px;
+}
+
+.phusa-nghien-cuu-title {
+     text-align: center;
+     font-size: 52px;
+     font-weight: 800;
+     color: #3d4c7a;
+     margin-bottom: 70px;
+     text-transform: uppercase;
+     letter-spacing: 3px;
+}
+
+.phusa-nghien-cuu-grid {
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     gap: 35px;
+     padding: 0 20px;
+     max-width: 1400px;
+     margin: 0 auto;
+}
+
+.phusa-nghien-cuu-card {
+     position: relative;
+     border-radius: 18px;
+     overflow: hidden;
+     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+     transition: transform 0.4s ease, box-shadow 0.4s ease;
+     cursor: pointer;
+     height: 460px;
+}
+
+.phusa-nghien-cuu-card:hover {
+     transform: translateY(-8px);
+     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.phusa-nghien-cuu-card-image {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+}
+
+.phusa-nghien-cuu-card-overlay {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.65) 100%);
+     padding: 35px;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+}
+
+.phusa-nghien-cuu-card-header {
+     color: white;
+}
+
+.phusa-nghien-cuu-card-title {
+     font-size: 34px;
+     font-weight: 700;
+     margin-bottom: 18px;
+     line-height: 1.3;
+     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* .phusa-nghien-cuu-card-description {
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+
+        } */
+
+.phusa-nghien-cuu-card-description {
+     font-size: 14.5px;
+     line-height: 1.6;
+     color: rgba(255, 255, 255, 0.95);
+     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+     display: -webkit-box;
+     -webkit-line-clamp: 3;
+     -webkit-box-orient: vertical;
+     overflow: hidden;
+     text-overflow: ellipsis;
+}
+
+.phusa-nghien-cuu-card--center {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     height: 80%;
+}
+
+.phusa-nghien-cuu-card-wrapper {
+     position: relative;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 25px;
+}
+
+.phusa-nghien-cuu-button {
+     display: inline-flex;
+     align-items: center;
+     justify-content: space-between;
+     gap: 20px;
+     background-color: #0a1f44;
+     color: white;
+     padding: 0 8px 0 40px;
+     border-radius: 60px;
+     text-decoration: none;
+     font-size: 19px;
+     font-weight: 600;
+     transition: all 0.3s ease;
+     box-shadow: 0 4px 15px rgba(10, 31, 68, 0.35);
+     width: 380px;
+     height: 75px;
+}
+
+.phusa-nghien-cuu-button:hover {
+     background-color: #051633;
+     transform: translateX(5px);
+     box-shadow: 0 6px 20px rgba(10, 31, 68, 0.5);
+}
+
+.phusa-nghien-cuu-button-icon {
+     width: 60px;
+     height: 60px;
+     background-color: white;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     color: #0a1f44;
+     font-size: 30px;
+     font-weight: bold;
+     flex-shrink: 0;
+}
+
+@media (max-width: 1200px) {
+     .phusa-nghien-cuu-grid {
+          grid-template-columns: repeat(2, 1fr);
+     }
+
+     .phusa-nghien-cuu-card-wrapper:last-child,
+     .phusa-nghien-cuu-card:last-child {
+          grid-column: 1 / -1;
+          max-width: 600px;
+          margin: 0 auto;
+          width: 100%;
+     }
+}
+
+@media (max-width: 768px) {
+     .phusa-nghien-cuu-container {
+          padding: 40px 15px;
+     }
+
+     .phusa-nghien-cuu-title {
+          font-size: 36px;
+          margin-bottom: 40px;
+          letter-spacing: 2px;
+     }
+
+     .phusa-nghien-cuu-grid {
+          grid-template-columns: 1fr;
+          gap: 25px;
+          padding: 0 10px;
+     }
+
+     .phusa-nghien-cuu-card {
+          height: 420px;
+     }
+
+     .phusa-nghien-cuu-card:last-child {
+          grid-column: 1;
+          max-width: 100%;
+     }
+
+     .phusa-nghien-cuu-card-title {
+          font-size: 28px;
+     }
+
+     .phusa-nghien-cuu-card-description {
+          font-size: 13.5px;
+     }
+
+     .phusa-nghien-cuu-card-overlay {
+          padding: 28px;
+     }
+
+     .phusa-nghien-cuu-button {
+          padding: 14px 35px;
+          font-size: 17px;
+          gap: 15px;
+     }
+
+     .phusa-nghien-cuu-button-icon {
+          width: 28px;
+          height: 28px;
+          font-size: 20px;
+     }
+}

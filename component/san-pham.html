@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sphotcheck Platforms - Phusa Biochem</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+            min-height: 100vh;
+            /* padding: 40px 20px; */
+        }
+
+        .phusa-san-pham-container {
+            /* max-width: 1400px; */
+            min-height: 100vh;
+            padding: 40px 20px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            background: #32395B;
+        }
+
+        .phusa-san-pham-card {
+            background: #f0f4f8;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .phusa-san-pham-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .phusa-san-pham-main {
+            grid-row: span 2;
+            height: 720px;
+        }
+
+        .phusa-san-pham-title {
+            color: #1e5ba8;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .phusa-san-pham-subtitle {
+            color: #1e5ba8;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .phusa-san-pham-link {
+            color: #1e5ba8;
+            text-decoration: underline;
+            font-size: 0.95rem;
+            display: inline-block;
+            margin-bottom: 30px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .phusa-san-pham-link:hover {
+            color: #3182ce;
+        }
+
+        .phusa-san-pham-image-wrapper {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+
+        .phusa-san-pham-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .phusa-san-pham-main .phusa-san-pham-image {
+            min-height: 400px;
+        }
+
+        .phusa-san-pham-secondary {
+            background: #468ABA;
+            color: white;
+            position: relative;
+            overflow: visible;
+            display: flex;
+            flex-direction: column;
+            min-height: 280px;
+            height: 345px;
+        }
+
+        .phusa-san-pham-secondary .phusa-san-pham-title {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .phusa-san-pham-secondary .phusa-san-pham-subtitle {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .phusa-san-pham-secondary .phusa-san-pham-link {
+            color: white;
+            font-weight: 600;
+        }
+
+        .phusa-san-pham-content {
+            margin-bottom: 0;
+            flex-grow: 1;
+        }
+
+        .phusa-san-pham-secondary .phusa-san-pham-image-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-top: -60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .phusa-san-pham-secondary .phusa-san-pham-image {
+            max-width: 200px;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            /* filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3)); */
+        }
+
+        .phusa-san-pham-device .phusa-san-pham-image {
+            max-width: 220px;
+        }
+
+        @media (max-width: 1024px) {
+            .phusa-san-pham-container {
+                grid-template-columns: 1fr;
+            }
+
+            .phusa-san-pham-main {
+                grid-row: span 1;
+            }
+
+            .phusa-san-pham-title {
+                font-size: 2rem;
+            }
+
+            .phusa-san-pham-secondary .phusa-san-pham-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .phusa-san-pham-card {
+                padding: 25px;
+                border-radius: 20px;
+            }
+
+            .phusa-san-pham-title {
+                font-size: 1.5rem;
+            }
+
+            .phusa-san-pham-secondary .phusa-san-pham-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="phusa-san-pham-container">
+        <!-- Main Product Card -->
+        <div class="phusa-san-pham-card phusa-san-pham-main">
+            <div class="phusa-san-pham-content">
+                <h1 class="phusa-san-pham-title">Sphotcheck Platforms</h1>
+                <p class="phusa-san-pham-subtitle">Now with new improved system</p>
+                <a class="phusa-san-pham-link">Chi tiết</a>
+            </div>
+            <div class="phusa-san-pham-image-wrapper">
+                <img style="width: 600px;" src="../images/anh1.png"
+                    alt="Sphotcheck Platform" class="phusa-san-pham-image">
+            </div>
+        </div>
+
+        <!-- Secondary Card 1 - Portable Device -->
+        <div class="phusa-san-pham-card phusa-san-pham-secondary phusa-san-pham-device">
+            <div class="phusa-san-pham-content">
+                <h2 class="phusa-san-pham-title">New 3 in 1 Protable Devce</h2>
+                <p class="phusa-san-pham-subtitle">A next-generation portal system delivering speed...</p>
+                <a class="phusa-san-pham-link">Chi tiết</a>
+            </div>
+            <div class="phusa-san-pham-image-wrapper">
+                <img  src="../images/anh2.png"
+                    alt="3 in 1 Portable Device" class="phusa-san-pham-image">
+            </div>
+        </div>
+
+        <!-- Secondary Card 2 - Fish Research -->
+        <div class="phusa-san-pham-card phusa-san-pham-secondary">
+            <div class="phusa-san-pham-content">
+                <h2 class="phusa-san-pham-title">African fish disease research</h2>
+                <p class="phusa-san-pham-subtitle">Fish Pathoagen Research Across Africa...</p>
+                <a class="phusa-san-pham-link">Chi tiết</a>
+            </div>
+            <div class="phusa-san-pham-image-wrapper">
+                <img style="width: 200px;" src="../images/anh2.png"
+                    alt="African Fish Disease Research" class="phusa-san-pham-image">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
